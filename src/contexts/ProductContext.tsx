@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useEffect, useState, useContext } from "react";
 import { Product } from "../components/Models"
+import { mockedProducts } from "../data"
 
 interface ContextValue {
 	products: Product[];
@@ -20,7 +21,7 @@ interface Props {
 }
 
 function ProductProvider({children}: Props) {
-    const [products, setProducts] = useState<Product[]>(JSON.parse(localStorage.getItem("products")!) || []);
+    const [products, setProducts] = useState<Product[]>(JSON.parse(localStorage.getItem("products")!) || mockedProducts);
 
     useEffect(() => {
         localStorage.setItem("products", JSON.stringify(products))
