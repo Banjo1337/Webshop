@@ -15,3 +15,12 @@ export interface Product {
 //Barnbok
 //Träning
 //Fakta
+
+export type UserCreate = Omit<User, "id">;
+
+export interface User {
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+}
