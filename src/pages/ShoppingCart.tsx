@@ -11,6 +11,11 @@ import { Button } from '@mui/material';
 
 export default function BasicTable() {
   const { cart, removeFromCart } = useCart();
+  var formatter = new Intl.NumberFormat('sv-SE', {
+    style: 'currency',
+    currency: 'SEK',
+  })
+
   return (
     <main style={{maxWidth: "1000px", margin: "0 auto"}}>
       <TableContainer component={Paper} sx={{display: "flex", flexDirection: "column"}}>
@@ -35,7 +40,7 @@ export default function BasicTable() {
                 </TableCell>
                 <TableCell align="right">{product.author}</TableCell>
                 <TableCell align="right">{product.category}</TableCell>
-                <TableCell align="right">{product.price}</TableCell>
+                <TableCell align="right">{formatter.format(product.price)}</TableCell>
                 <TableCell align="right">
                   <DeleteIcon 
                     sx={{color: "#F5425D"}}
