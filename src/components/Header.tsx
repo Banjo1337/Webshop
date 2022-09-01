@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
@@ -7,7 +7,11 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import bokmal from "../assets/bokmal.png";
 
 export default function ResponsiveAppBar () {
-
+  const linkStyle = {
+    display: "flex",
+    textDecoration: "none",
+    color: "white"
+  }
   return (
     <>
       <AppBar position="static"
@@ -22,7 +26,7 @@ export default function ResponsiveAppBar () {
               display: "flex",
               justifyContent: "space-between"
             }}>
-              <NavLink to="/">
+              <Link to="/" style={linkStyle}>
                   <Box sx={{
                     display: "flex",
                     alignItems: "center"
@@ -46,13 +50,13 @@ export default function ResponsiveAppBar () {
                       bokmal.se
                     </Typography>
                   </Box>
-              </NavLink>
-            <NavLink to="shoppingcart" style={{ textDecoration: 'none' }}>
+              </Link>
+            <Link to="shoppingcart" style={linkStyle}>
               <ShoppingCartIcon sx={{
                 alignSelf: "center",
                 fontSize: "2rem"
               }}/>  
-            </NavLink>
+            </Link>
           </Box>
         </Container>
       </AppBar>
@@ -60,21 +64,3 @@ export default function ResponsiveAppBar () {
     </>
   );
 };
-
-
-// function Header() {
-//   return (
-//     <>
-//       <header style={{ display: "flex", height: "4rem" }}>
-//         <NavLink to="/">
-//           <h1>Home</h1>
-//         </NavLink>
-//         <NavLink to="shoppingcart">ShoppingCart</NavLink>
-//         <NavLink to="admincms">Admin CMS</NavLink>
-//       </header>
-//       <Outlet />
-//     </>
-//   );
-// }
-
-// export default Header;
