@@ -7,7 +7,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useCart } from '../contexts/CartContext';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Button } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { Link } from "react-router-dom";
 export default function BasicTable() {
   const { cart, removeFromCart } = useCart();
@@ -22,6 +22,7 @@ export default function BasicTable() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
+              <TableCell align="right"></TableCell>
               <TableCell>Title</TableCell>
               <TableCell align="right">Author</TableCell>
               <TableCell align="right">Genre</TableCell>
@@ -35,6 +36,15 @@ export default function BasicTable() {
                 key={product.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
+                <TableCell align="right">
+                  <Box
+                    component="img"
+                    sx={{
+                      width: "40px"
+                    }}
+                    src={product.image}
+                  />
+                </TableCell>
                 <TableCell component="th" scope="row">
                   {product.title}
                 </TableCell>
