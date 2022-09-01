@@ -1,8 +1,5 @@
 import { createContext, ReactNode, useEffect, useState, useContext } from "react";
-
-interface Product {
-    id: string
-}
+import { Product } from "../components/Models"
 
 interface ContextValue {
 	products: Product[];
