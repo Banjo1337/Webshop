@@ -5,8 +5,11 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import bokmal from "../assets/bokmal.png";
+import Badge from '@mui/material/Badge';
+import { useCart } from "../contexts/CartContext";
 
 export default function ResponsiveAppBar () {
+  const { cart } = useCart();
   const linkStyle = {
     display: "flex",
     textDecoration: "none",
@@ -52,10 +55,13 @@ export default function ResponsiveAppBar () {
                   </Box>
               </Link>
             <Link to="shoppingcart" style={linkStyle}>
-              <ShoppingCartIcon sx={{
-                alignSelf: "center",
-                fontSize: "2rem"
-              }}/>  
+              <Badge color="secondary" overlap="circular" badgeContent={cart.length}>
+                <ShoppingCartIcon sx={{
+                  alignSelf: "center",
+                  fontSize: "2rem"
+                }}/>  
+              </Badge>
+              
             </Link>
           </Box>
         </Container>
