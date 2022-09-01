@@ -8,6 +8,8 @@ export interface Product {
   category: string;
 }
 
+export type ProductCreate = Omit<Product, "id">;
+
 //Kategorier:
 //Roman
 //Deckare
