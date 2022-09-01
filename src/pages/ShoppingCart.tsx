@@ -8,7 +8,7 @@ import Paper from '@mui/material/Paper';
 import { useCart } from '../contexts/CartContext';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Button } from '@mui/material';
-
+import { Link } from "react-router-dom";
 export default function BasicTable() {
   const { cart, removeFromCart } = useCart();
   var formatter = new Intl.NumberFormat('sv-SE', {
@@ -17,8 +17,8 @@ export default function BasicTable() {
   })
 
   return (
-    <main style={{maxWidth: "1000px", margin: "0 auto"}}>
-      <TableContainer component={Paper} sx={{display: "flex", flexDirection: "column"}}>
+    <main style={{maxWidth: "1000px", margin: "0 auto", display: "flex", flexDirection: "column"}}>
+      <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -51,10 +51,12 @@ export default function BasicTable() {
             ))}
           </TableBody>
         </Table>
+      </TableContainer>
+      <Link to="/checkout" style={{alignSelf: "flex-end", textDecoration: "none"}}>
         <Button variant="contained" color="success" size="large">
           Check out
         </Button>
-      </TableContainer>
+      </Link>
 
     </main>
   );
