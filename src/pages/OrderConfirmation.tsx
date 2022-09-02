@@ -1,4 +1,3 @@
-import UserForm from "../components/UserForm";
 import { useCart } from "../contexts/CartContext";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,10 +8,11 @@ import TableRow from "@mui/material/TableRow";
 import { Box, Button } from "@mui/material";
 import Paper from "@mui/material/Paper";
 
-function Checkout() {
+function OrderConfirmation() {
   const { cart } = useCart();
   const totalPrice = cart.reduce(
-    (totalPrice, product) => (totalPrice = totalPrice + product.price*product.number),
+    (totalPrice, product) =>
+      (totalPrice = totalPrice + product.price * product.number),
     0
   );
   const totalNumberOfItem = cart.reduce(
@@ -27,7 +27,7 @@ function Checkout() {
   return (
     <main style={{ display: "flex", flexDirection: "column" }}>
       <h2>Checkout</h2>
-      <h3>Här är din beställning</h3>
+      <h3>Här är bekräftelse på din beställning</h3>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -88,16 +88,13 @@ function Checkout() {
               <TableCell align="right">
                 {formatter.format(totalPrice)}
               </TableCell>
-              <TableCell align="right">
-                {totalNumberOfItem}
-              </TableCell>
+              <TableCell align="right">{totalNumberOfItem}</TableCell>
             </TableRow>
           </TableBody>
         </Table>
       </TableContainer>
-      <UserForm />
     </main>
   );
 }
 
-export default Checkout;
+export default OrderConfirmation;

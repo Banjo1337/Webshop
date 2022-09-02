@@ -6,6 +6,7 @@ import Books from "./pages/Books";
 import Checkout from "./pages/Checkout";
 import PageNotFound from "./pages/PageNotFound";
 import ShoppingCart from "./pages/ShoppingCart";
+import OrderConfirmation from "./pages/OrderConfirmation";
 
 function App() {
   return (
@@ -16,10 +17,8 @@ function App() {
         <Route path="shoppingcart" element={<ShoppingCart />} />
         <Route path="admincms" element={<AdminCMS />} />
         <Route path="checkout" element={<Checkout />} />
-        <Route
-          path="*"
-          element={<PageNotFound />}
-        />
+        <Route path="orderconfirmation" element={<OrderConfirmation />} />
+        <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
   );
