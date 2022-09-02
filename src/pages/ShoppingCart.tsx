@@ -9,7 +9,8 @@ import { useCart } from '../contexts/CartContext';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Box, Button } from '@mui/material';
 import { Link } from "react-router-dom";
-export default function BasicTable() {
+
+export default function ShoppingCart() {
   const { cart, removeFromCart } = useCart();
   var formatter = new Intl.NumberFormat('sv-SE', {
     style: 'currency',
@@ -17,7 +18,7 @@ export default function BasicTable() {
   })
 
   return (
-    <main style={{maxWidth: "1000px", margin: "0 auto", display: "flex", flexDirection: "column"}}>
+    <main style={{display: "flex", flexDirection: "column"}}>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -53,7 +54,7 @@ export default function BasicTable() {
                 <TableCell align="right">{formatter.format(product.price)}</TableCell>
                 <TableCell align="right">
                   <DeleteIcon 
-                    sx={{color: "#F5425D"}}
+                    sx={{color: "#F5425D", cursor: "pointer"}}
                     onClick={() => removeFromCart(product)}
                   />
                   </TableCell>
