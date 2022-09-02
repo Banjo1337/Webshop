@@ -4,6 +4,7 @@ import AdminCMS from "./pages/AdminCMS";
 import BookDetails from "./pages/BookDetails";
 import Books from "./pages/Books";
 import Checkout from "./pages/Checkout";
+import PageNotFound from "./pages/PageNotFound";
 import ShoppingCart from "./pages/ShoppingCart";
 
 function App() {
@@ -15,11 +16,11 @@ function App() {
         <Route path="shoppingcart" element={<ShoppingCart />} />
         <Route path="admincms" element={<AdminCMS />} />
         <Route path="checkout" element={<Checkout />} />
+        <Route
+          path="*"
+          element={<PageNotFound />}
+        />
       </Route>
-      <Route
-        path="*"
-        element={<div>Could not find what you were looking for..</div>}
-      />
     </Routes>
   );
 }
