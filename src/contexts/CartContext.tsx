@@ -1,10 +1,10 @@
 import { createContext, useState, ReactNode, useContext } from "react";
-import { ProductInCart } from "../components/Models";
+import { Product, ProductInCart } from "../components/Models";
 
 interface ContextValue {
   cart: ProductInCart[];
-  addToCart: (productInCart: ProductInCart) => void;
-  removeFromCart: (productInCart: ProductInCart) => void;
+  addToCart: (product: Product) => void;
+  removeFromCart: (product: Product) => void;
 }
 
 const CartContext = createContext<ContextValue>({
@@ -19,12 +19,21 @@ interface Props {
 
 function CartProvider({ children }: Props) {
   const [cart, setCart] = useState<ProductInCart[]>([]);
+  console.log(cart)
 
-  const addToCart = (productInCart: ProductInCart) => {
-    setCart((prevState) => [...prevState, productInCart]);
+  const addToCart = (product: Product) => {
+    if(cart.find(p => p.id === product.id)) {
+      setCart(prevState => prevState.map(p => p.id === product.id ? {...p, number: p.number + 1 } : p))
+    } else {
+      setCart((prevState) => [...prevState, {...product, number: 1}]);
+    }
   };
-  const removeFromCart = (productInCart: ProductInCart) => {
-    setCart((prevState) => prevState.filter((p) => p.id !== productInCart.id));
+  const removeFromCart = (product: Product) => {
+    if(cart.find(p => p.id === product.id)) {
+      setCart(prevState => prevState.map(p => p.id === product.id ? {...p, number: p.number - 1 } : p).filter(p => p.number !== 0))
+    } else {
+      setCart((prevState) => prevState.filter((p) => p.id !== product.id));
+    }
   };
 
   return (

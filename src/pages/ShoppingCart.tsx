@@ -28,6 +28,7 @@ export default function ShoppingCart() {
               <TableCell align="right">Author</TableCell>
               <TableCell align="right">Genre</TableCell>
               <TableCell align="right">Price</TableCell>
+              <TableCell align="right">Quantity</TableCell>
               <TableCell align="right">Remove</TableCell>
             </TableRow>
           </TableHead>
@@ -52,6 +53,7 @@ export default function ShoppingCart() {
                 <TableCell align="right">{product.author}</TableCell>
                 <TableCell align="right">{product.category}</TableCell>
                 <TableCell align="right">{formatter.format(product.price)}</TableCell>
+                <TableCell align="right">{product.number}</TableCell>
                 <TableCell align="right">
                   <DeleteIcon 
                     sx={{color: "#F5425D", cursor: "pointer"}}

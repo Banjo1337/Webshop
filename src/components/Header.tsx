@@ -70,7 +70,7 @@ export default function ResponsiveAppBar () {
               }}
             >
               <Link to="shoppingcart" style={linkStyle}>
-                <Badge color="secondary" overlap="circular" badgeContent={cart.length}>
+                <Badge color="secondary" overlap="circular" badgeContent={cart.reduce((sum, p) => sum + p.number, 0)}>
                   <ShoppingCartIcon
                     sx={{
                       alignSelf: "center",
