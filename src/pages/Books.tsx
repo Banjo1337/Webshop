@@ -48,7 +48,7 @@ function Books() {
                 {book.author}
               </Typography>
 
-              <ShopButton>{book.price} kr</ShopButton>
+              <ShopButton product={book}>{book.price} kr</ShopButton>
             </CardContent>
           </Card>
         </div>
