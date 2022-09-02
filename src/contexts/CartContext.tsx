@@ -21,10 +21,10 @@ function CartProvider({ children }: Props) {
   const [cart, setCart] = useState<Product[]>([]);
 
   const addToCart = (product: Product) => {
-    //TODO
+    setCart((prevState) => [...prevState, product]);
   };
   const removeFromCart = (product: Product) => {
-    //TODO
+    setCart((prevState) => prevState.filter((p) => p.id !== product.id));
   };
 
   return (
