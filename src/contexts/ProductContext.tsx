@@ -1,52 +1,54 @@
 import { createContext, ReactNode, useEffect, useState, useContext } from "react";
-import { Product } from "../components/Models"
+import { Book } from "../components/Models"
 import { mockedProducts } from "../data"
 
 interface ContextValue {
-	products: Product[];
-	addProduct: (product: Product) => void;
-	removeProduct: (product: Product) => void;
-    editProduct:  (product: Product) => void;
+	products: Book[];
+	addProduct: (product: Book) => void;
+	removeProduct: (product: Book) => void;
+    editProduct:  (product: Book) => void;
+	getProduct: (id: string) => Book;
 }
 
-const ProductContext = createContext<ContextValue>(({
-	products:[],
-	addProduct: () => {},
-	removeProduct: () => {},
-    editProduct:  () => {},
-}));
+const ProductContext = createContext<ContextValue>({} as ContextValue);
 
 interface Props {
 	children: ReactNode;
 }
 
-function ProductProvider({children}: Props) {
-    const [products, setProducts] = useState<Product[]>(JSON.parse(localStorage.getItem("products")!) || mockedProducts);
+export default function ProductProvider({children}: Props) {
+    const [products, setProducts] = useState<Book[]>(JSON.parse(localStorage.getItem("products")!) || mockedProducts);
 
     useEffect(() => {
         localStorage.setItem("products", JSON.stringify(products))
     }, [products])
 
-	function addProduct(product: Product) {
+
+	function addProduct(product: Book) {
         setProducts(prevState => [...prevState, product]);
 	}
 
-	function removeProduct(product: Product) {
+	function removeProduct(product: Book) {
         setProducts(prevState => prevState.filter(p => p.id !== product.id));
 	}
 
-	function editProduct(product: Product) {
+	function editProduct(product: Book) {
         setProducts(prevState => prevState.map(p => p.id !== product.id ? p : product));
 	}
 
-    return <ProductContext.Provider value={{products, addProduct, removeProduct, editProduct}}>{children}</ProductContext.Provider>;
+	function getProduct(id: string) : Book {
+		return products.find(product => product.id === id) || {} as Book;
+	}
+
+    return <ProductContext.Provider value={{products, addProduct, removeProduct, editProduct, getProduct}}>{children}</ProductContext.Provider>;
 
 
 }
 
-export default function useProduct() {
+export function useProduct() {
     return useContext(ProductContext);
 };
+
 
 
 
