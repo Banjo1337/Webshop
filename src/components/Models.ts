@@ -10,7 +10,7 @@ export interface Book {
 
 export type ProductCreate = Omit<Book, "id">;
 
-export interface ProductInCart extends Product  { number: number };
+export interface ProductInCart extends Book  { number: number };
 
 
 //Kategorier:

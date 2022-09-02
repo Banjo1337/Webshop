@@ -1,10 +1,10 @@
 import { createContext, useState, ReactNode, useContext } from "react";
-import { Product, ProductInCart } from "../components/Models";
+import { Book, ProductInCart } from "../components/Models";
 
 interface ContextValue {
   cart: ProductInCart[];
-  addToCart: (product: Product) => void;
-  removeFromCart: (product: Product) => void;
+  addToCart: (product: Book) => void;
+  removeFromCart: (product: Book) => void;
 }
 
 const CartContext = createContext<ContextValue>({
@@ -20,14 +20,14 @@ interface Props {
 function CartProvider({ children }: Props) {
   const [cart, setCart] = useState<ProductInCart[]>([]);
 
-  const addToCart = (product: Product) => {
+  const addToCart = (product: Book) => {
     if(cart.find(p => p.id === product.id)) {
       setCart(prevState => prevState.map(p => p.id === product.id ? {...p, number: p.number + 1 } : p))
     } else {
       setCart((prevState) => [...prevState, {...product, number: 1}]);
     }
   };
-  const removeFromCart = (product: Product) => {
+  const removeFromCart = (product: Book) => {
     if(cart.find(p => p.id === product.id)) {
       setCart(prevState => prevState.map(p => p.id === product.id ? {...p, number: p.number - 1 } : p).filter(p => p.number !== 0))
     } else {
