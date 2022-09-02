@@ -21,8 +21,11 @@ export type ProductCreate = Omit<Product, "id">;
 export type UserCreate = Omit<User, "id">;
 
 export interface User {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
   address: string;
+  postcode: string;
+  city: string;
 }
