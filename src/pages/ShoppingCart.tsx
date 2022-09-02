@@ -10,7 +10,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Box, Button } from '@mui/material';
 import { Link } from "react-router-dom";
 
-export default function BasicTable() {
+export default function ShoppingCart() {
   const { cart, removeFromCart } = useCart();
   var formatter = new Intl.NumberFormat('sv-SE', {
     style: 'currency',
