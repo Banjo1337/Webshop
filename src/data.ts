@@ -1,6 +1,6 @@
-import { Product } from "./components/Models";
+import { Book } from "./components/Models";
 
-export const mockedProducts: Product[] = [
+export const mockedProducts: Book[] = [
   {
     id: "1",
     price: 209,
@@ -230,10 +230,10 @@ export const mockedProducts: Product[] = [
   },
 ];
 
-export interface Book {
-  bookId: string;
-  bookTitle: string;
-  bookPrice: number;
-}
+// export interface Book {
+//   bookId: string;
+//   bookTitle: string;
+//   bookPrice: number;
+// }
 
-export function getBook(bookId: string) {}
+// export function getBook(bookId: string) {}

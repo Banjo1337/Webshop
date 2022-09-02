@@ -2,11 +2,11 @@ import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
 import Button from "@mui/material/Button";
 import { ReactNode } from "react";
 import { useCart } from "../contexts/CartContext";
-import { Product } from "./Models";
+import { Book } from "./Models";
 
 interface Props {
   children: ReactNode;
-  product: Product;
+  product: Book;
 }
 
 const ShopButton = ({ children, product }: Props) => {

@@ -1,4 +1,4 @@
-export interface Product {
+export interface Book {
   id: string;
   price: number;
   title: string;
@@ -8,9 +8,10 @@ export interface Product {
   category: string;
 }
 
-export type ProductCreate = Omit<Product, "id">;
+export type ProductCreate = Omit<Book, "id">;
 
-export interface ProductInCart extends Product  { number: number };
+export interface ProductInCart extends Book  { number: number };
+
 
 //Kategorier:
 //Roman

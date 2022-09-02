@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { Product, ProductCreate } from "./Models";
+import { Book, ProductCreate } from "./Models";
 import * as Yup from "yup";
 
 type ProductRecord = Record<keyof ProductCreate, Yup.AnySchema>;
@@ -13,7 +13,11 @@ const ProductSchema = Yup.object().shape<ProductRecord>({
   category: Yup.string().required(),
 });
 
-function ProductForm() {
+interface Props {
+  book?: Book;
+}
+
+function ProductForm(props: Props) {
   const formik = useFormik<ProductCreate>({
     initialValues: {
       price: 0,
@@ -26,8 +30,8 @@ function ProductForm() {
     validateOnChange: true,
     validationSchema: ProductSchema,
     onSubmit: (values) => {
-        console.log("On SUBMIT", values)  // to modify later on
-    }
+      console.log("On SUBMIT", values); // to modify later on
+    },
   });
 
   return (
