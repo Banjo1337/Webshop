@@ -1,4 +1,8 @@
+import { useCart } from "../contexts/CartContext";
+
 function OrderConfirmation() {
+  const { cart } = useCart();
+
   return (
     <main>
       <h2>OrderConfirmation</h2>
