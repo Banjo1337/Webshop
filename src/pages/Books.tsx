@@ -1,5 +1,6 @@
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import ShopButton from "../components/ShopButton";
 import { mockedProducts } from "../data";
 
@@ -11,10 +12,7 @@ function Books() {
       style={{
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: "center",
-        alignContent: "center",
         padding: "1rem",
-        maxWidth: "100rem",
       }}
     >
       {books.map((book) => (
@@ -30,12 +28,14 @@ function Books() {
               minHeight: "30rem",
             }}
           >
-            <CardMedia
-              component="img"
-              height="300"
-              image={book.image}
-              alt={book.title + " cover"}
-            />
+            <Link to={`/book/${book.id}`}>
+              <CardMedia
+                component="img"
+                height="300"
+                image={book.image}
+                alt={book.title + " cover"}
+              />
+            </Link>
             <CardContent>
               <Typography gutterBottom variant="body2">
                 {book.title}
@@ -47,6 +47,7 @@ function Books() {
               >
                 {book.author}
               </Typography>
+
               <ShopButton>{book.price} kr</ShopButton>
             </CardContent>
           </Card>
