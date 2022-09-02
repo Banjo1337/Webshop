@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import { Product, ProductCreate } from "./Models";
 import * as Yup from "yup";
+import { mockedProducts } from "../data";
 
 type ProductRecord = Record<keyof ProductCreate, Yup.AnySchema>;
 
@@ -13,7 +14,11 @@ const ProductSchema = Yup.object().shape<ProductRecord>({
   category: Yup.string().required(),
 });
 
-function ProductForm() {
+interface Props {
+  product?: Product;
+}
+
+function ProductForm(props: Product) {
   const formik = useFormik<ProductCreate>({
     initialValues: {
       price: 0,
@@ -26,8 +31,10 @@ function ProductForm() {
     validateOnChange: true,
     validationSchema: ProductSchema,
     onSubmit: (values) => {
-        console.log("On SUBMIT", values)  // to modify later on
-    }
+      console.log("On SUBMIT", values);
+      mockedProducts.push(values as Product);
+      // to modify later on
+    },
   });
 
   return (
@@ -35,6 +42,7 @@ function ProductForm() {
       <input
         placeholder="Title"
         type="text"
+        name="title"
         value={formik.values.title}
         onChange={formik.handleChange}
       />
@@ -42,6 +50,7 @@ function ProductForm() {
       <input
         placeholder="Author"
         type="text"
+        name="author"
         value={formik.values.author}
         onChange={formik.handleChange}
       />
@@ -49,6 +58,7 @@ function ProductForm() {
       <input
         placeholder="Description"
         type="text"
+        name="description"
         value={formik.values.description}
         onChange={formik.handleChange}
       />
@@ -56,6 +66,7 @@ function ProductForm() {
       <input
         placeholder="Price"
         type="text"
+        name="price"
         value={formik.values.price}
         onChange={(e) => formik.setFieldValue("price", Number(e.target.value))}
       />
@@ -63,6 +74,7 @@ function ProductForm() {
       <input
         placeholder="Image"
         type="text"
+        name="image"
         value={formik.values.image}
         onChange={formik.handleChange}
       />
@@ -70,6 +82,7 @@ function ProductForm() {
       <input
         placeholder="Category"
         type="text"
+        name="category"
         value={formik.values.category}
         onChange={formik.handleChange}
       />
