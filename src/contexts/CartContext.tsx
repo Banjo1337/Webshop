@@ -19,7 +19,6 @@ interface Props {
 
 function CartProvider({ children }: Props) {
   const [cart, setCart] = useState<ProductInCart[]>([]);
-  console.log(cart)
 
   const addToCart = (product: Product) => {
     if(cart.find(p => p.id === product.id)) {
