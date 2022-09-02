@@ -1,7 +1,4 @@
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
+import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { useState } from "react";
 import ShopButton from "../components/ShopButton";
 import { mockedProducts } from "../data";
@@ -15,11 +12,18 @@ function Books() {
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "center",
+        alignContent: "center",
         padding: "1rem",
+        maxWidth: "100rem",
       }}
     >
       {books.map((book) => (
-        <div key={book.id} style={{ padding: ".5rem" }}>
+        <div
+          key={book.id}
+          style={{
+            padding: ".5rem",
+          }}
+        >
           <Card
             sx={{
               maxWidth: "12rem",
