@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import ShopButton from "../components/ShopButton";
 import { useProduct } from "../contexts/ProductContext";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import PageNotFound from "./PageNotFound";
 
 
 
@@ -11,11 +12,15 @@ function BookDetails() {
   const { id } = useParams();
   const { products, getProduct} = useProduct();
   const product = getProduct(id!);
-  
+
   const boxStyle : CSSProperties = {
     flex: "1",
     minHeight: "500px",
     display: "flex"
+  }
+
+  if(Object.keys(product).length === 0) {
+    return <PageNotFound />
   }
 
   return (
@@ -50,8 +55,6 @@ function BookDetails() {
               <Typography
                 variant="h5"
                 component="p"
-                
-
               >
                 {product.author}
               </Typography>
@@ -84,7 +87,7 @@ function BookDetails() {
         {
           products.filter(p => p.category === product.category && p.id !== product.id).slice(0, 5).
           map(p =>
-          <Link to={"/book/" + p.id}>
+          <Link to={"/book/" + p.id} key={p.id}>
             <Box component="img" src={p.image} sx={{maxHeight: "200px"}}/>
           </Link> 
         )}
@@ -94,3 +97,4 @@ function BookDetails() {
 }
 
 export default BookDetails;
+
