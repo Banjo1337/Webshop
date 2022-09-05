@@ -23,7 +23,7 @@ export default function ResponsiveAppBar () {
         elevation={15}
         sx={{
           background:
-            "linear-gradient(0deg, rgba(172,172,172,0.7903536414565826) 0%, rgba(40,221,255,0.7791491596638656) 2%, rgba(40,130,255,1) 71%)",
+            "linear-gradient(0deg, rgba(172,172,172,0.7903536414565826) 0%, rgba(40,221,255,0.7791491596638656) 2%, rgba(40,130,255,1) 18%)",
         }}
       >
         <Container maxWidth="xl" sx={{ height: "55px" }}>
