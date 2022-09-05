@@ -34,6 +34,7 @@ function Books() {
           flexDirection: "column",
           flex: 1,
           padding: ".4rem",
+          position: "fixed",
         }}
       >
         <ButtonGroup>{buttons}</ButtonGroup>
@@ -43,6 +44,7 @@ function Books() {
           display: "flex",
           flexWrap: "wrap",
           flex: 9,
+          marginLeft: "15%",
         }}
       >
         {books
