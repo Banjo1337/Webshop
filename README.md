@@ -8,16 +8,16 @@
 
 Krav för godkänt:
 
-1. Git & GitHub har använts []
-2. Projektmappen innehåller en README.md fil - (läs ovan för mer info) []
-3. Uppgiften lämnas in i tid! []
-4. React, Typescript & ett komponentbibliotek ska används []
-5. React Router används för navigering []
-6. Formulären vid utcheckningen ska gå att automatiskt fyllas i []
-7. Samtliga fält ska ha valideringsregler []
+1. Git & GitHub har använts [X]
+2. Projektmappen innehåller en README.md fil - (läs ovan för mer info) [X]
+3. Uppgiften lämnas in i tid! [X]
+4. React, Typescript & ett komponentbibliotek ska används [X]
+5. React Router används för navigering [X]
+6. Formulären vid utcheckningen ska gå att automatiskt fyllas i [X]
+7. Samtliga fält ska ha valideringsregler [X]
 8. Hemsidan ska vara fullt responsiv (ner till 360px) []
-9. Mockade produkter ska finnas i en egen fil och vara typade med ett TS interface []
-10. Projektet skall läggas upp på Netlify eller liknande tjänst. []
+9. Mockade produkter ska finnas i en egen fil och vara typade med ett TS interface [X]
+10. Projektet skall läggas upp på Netlify eller liknande tjänst. [X]
 
 Krav för väl godkänt:
 
