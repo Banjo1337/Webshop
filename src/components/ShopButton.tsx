@@ -1,7 +1,8 @@
 import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
 import Button from "@mui/material/Button";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { useCart } from "../contexts/CartContext";
+import AddedToCartToast from "./AddedToCartToast";
 import { Book } from "./Models";
 
 interface Props {
@@ -10,7 +11,18 @@ interface Props {
 }
 
 const ShopButton = ({ children, product }: Props) => {
+  const [open, setOpen] = useState(false);
   const { addToCart } = useCart();
+
+  useEffect(() => {
+    return setOpen(false);
+  }, [product])
+
+
+  function handleClick() {
+    addToCart(product);
+    setOpen(true);
+  }
 
   return (
     <div>
@@ -19,10 +31,17 @@ const ShopButton = ({ children, product }: Props) => {
         variant="contained"
         color="error"
         size="large"
-        onClick={() => addToCart(product)}
+        onClick={handleClick}
       >
         {children}
-      </Button>
+      </Button>   
+
+      <AddedToCartToast
+        message={`${product.title} added to cart 🐸`}
+        severity="success"
+        open={open}
+        setOpen={setOpen}
+      />      
     </div>
   );
 };
