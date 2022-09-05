@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import { useState } from "react";
 import BookCard from "../components/BookCard";
 import ButtonGroup from "../components/ButtonGroup";
+import ShopButton from "../components/ShopButton";
 import { mockedProducts } from "../data";
 
 function Books() {
@@ -29,7 +30,6 @@ function Books() {
     >
       <div
         style={{
-          background: "lightblue",
           display: "flex",
           flexDirection: "column",
           flex: 1,
@@ -40,7 +40,6 @@ function Books() {
       </div>
       <div
         style={{
-          background: "lightyellow",
           display: "flex",
           flexWrap: "wrap",
           flex: 9,
@@ -57,7 +56,9 @@ function Books() {
                 padding: ".5rem",
               }}
             >
-              <BookCard book={book} />
+              <BookCard book={book}>
+                <ShopButton product={book}>{book.price} kr</ShopButton>
+              </BookCard>
             </div>
           ))}
       </div>

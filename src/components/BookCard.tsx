@@ -1,13 +1,14 @@
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Book } from "./Models";
-import ShopButton from "./ShopButton";
 
 interface Props {
   book: Book;
+  children: ReactNode;
 }
 
-const BookCard = ({ book }: Props) => {
+const BookCard = ({ book, children }: Props) => {
   return (
     <Card
       sx={{
@@ -37,8 +38,7 @@ const BookCard = ({ book }: Props) => {
         >
           {book.author}
         </Typography>
-
-        <ShopButton product={book}>{book.price} kr</ShopButton>
+        {children}
       </CardContent>
     </Card>
   );
