@@ -19,7 +19,7 @@ export default function ResponsiveAppBar () {
   return (
     <>
       <AppBar
-        position="static"
+        position="fixed"
         elevation={15}
         sx={{
           background:
