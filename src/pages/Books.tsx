@@ -1,14 +1,7 @@
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@mui/material";
+import { Button } from "@mui/material";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import BookCard from "../components/BookCard";
+import ButtonGroup from "../components/ButtonGroup";
 import ShopButton from "../components/ShopButton";
 import { mockedProducts } from "../data";
 
@@ -37,37 +30,19 @@ function Books() {
     >
       <div
         style={{
-          background: "lightblue",
           display: "flex",
           flexDirection: "column",
           flex: 1,
           padding: ".4rem",
         }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            "& > *": {
-              m: 1,
-            },
-          }}
-        >
-          <ButtonGroup
-            orientation="vertical"
-            aria-label="vertical contained button group"
-            variant="text"
-          >
-            {buttons}
-          </ButtonGroup>
-        </Box>
-        {/* <ButtonGroupOrientation /> */}
+        <ButtonGroup>{buttons}</ButtonGroup>
       </div>
       <div
         style={{
-          background: "lightyellow",
           display: "flex",
           flexWrap: "wrap",
-          flex: 7,
+          flex: 9,
         }}
       >
         {books
@@ -81,37 +56,9 @@ function Books() {
                 padding: ".5rem",
               }}
             >
-              <Card
-                sx={{
-                  maxWidth: "12rem",
-                  minHeight: "30rem",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                <Link to={`/book/${book.id}`}>
-                  <CardMedia
-                    component="img"
-                    height="300"
-                    image={book.image}
-                    alt={book.title + " cover"}
-                  />
-                </Link>
-                <CardContent>
-                  <Typography gutterBottom variant="body2">
-                    {book.title}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    style={{ paddingBottom: ".3rem" }}
-                  >
-                    {book.author}
-                  </Typography>
-
-                  <ShopButton product={book}>{book.price} kr</ShopButton>
-                </CardContent>
-              </Card>
+              <BookCard book={book}>
+                <ShopButton product={book}>{book.price} kr</ShopButton>
+              </BookCard>
             </div>
           ))}
       </div>
