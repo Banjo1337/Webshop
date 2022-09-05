@@ -11,7 +11,7 @@ interface Props {
 }
 
 const ShopButton = ({ children, product }: Props) => {
-  const [open, setOpen] = useState(() => false);
+  const [open, setOpen] = useState(false);
   const { addToCart } = useCart();
 
   useEffect(() => {
