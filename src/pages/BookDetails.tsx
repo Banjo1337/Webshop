@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import ShopButton from "../components/ShopButton";
 import { useProduct } from "../contexts/ProductContext";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import "../styles/BookDetails.css"
 
 
 
@@ -20,7 +21,7 @@ function BookDetails() {
 
   return (
     <main>
-      <Box sx={{display: "flex"}}>
+      <Box className="bookDetailsContainer" sx={{display: "flex"}}>
         <Box sx={{...boxStyle, justifyContent: "center", alignItems: "center", position: "relative"}}>
             <Link to="/" style={{
               display: "flex",
@@ -77,7 +78,9 @@ function BookDetails() {
       <Typography variant="h5" sx={{textAlign: "center", padding: "2rem 0", letterSpacing: ".2rem"}}>
         Liknande titlar
       </Typography>
-      <Box sx={{
+      <Box 
+        className="similarTitlesContainer"
+        sx={{
         display: "flex",
         justifyContent: "space-around"
       }}>
