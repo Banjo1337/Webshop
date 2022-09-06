@@ -9,11 +9,11 @@ import Paper from "@mui/material/Paper";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import AddIcon from "@mui/icons-material/Add";
-import { Box} from "@mui/material";
+import { Box } from "@mui/material";
 import { useProduct } from "../contexts/ProductContext";
 
 export default function AdminCMS() {
-  const { products, addProduct, removeProduct, editProduct } = useProduct();
+  const { products, removeProduct, editProduct } = useProduct();
   const formatter = new Intl.NumberFormat("sv-SE", {
     style: "currency",
     currency: "SEK",
@@ -36,7 +36,7 @@ export default function AdminCMS() {
               <TableCell align='right'>
                 <AddIcon
                   sx={{ color: "#F5425D", cursor: "pointer" }}
-                  onClick={() => addProduct()}
+                  onClick={() => console.log("addProduct function")}
                 />
               </TableCell>
             </TableRow>
