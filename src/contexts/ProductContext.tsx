@@ -47,7 +47,7 @@ export default function ProductProvider({children}: Props) {
 
 export function useProduct() {
     return useContext(ProductContext);
-};
+}
 
 
 

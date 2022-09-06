@@ -20,7 +20,7 @@ function Checkout() {
       (totalNumberOfItem = totalNumberOfItem + product.number),
     0
   );
-  var formatter = new Intl.NumberFormat("sv-SE", {
+  const formatter = new Intl.NumberFormat("sv-SE", {
     style: "currency",
     currency: "SEK",
   });

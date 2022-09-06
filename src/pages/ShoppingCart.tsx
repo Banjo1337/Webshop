@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 export default function ShoppingCart() {
   const { cart, removeFromCart, addToCart, removeAllQuantitiesFromCart } = useCart();
-  var formatter = new Intl.NumberFormat('sv-SE', {
+  const formatter = new Intl.NumberFormat('sv-SE', {
     style: 'currency',
     currency: 'SEK',
   })

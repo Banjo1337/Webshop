@@ -30,7 +30,7 @@ function ProductForm(props: Props) {
     validateOnChange: true,
     validationSchema: ProductSchema,
     onSubmit: (values) => {
-      console.log("On SUBMIT", values); // to modify later on
+      console.log("On SUBMIT", values);
     },
   });
 
