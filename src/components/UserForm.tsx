@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import { ErrorMessage, useFormik } from "formik";
+import { useFormik } from "formik";
 import { CSSProperties } from "react";
 import * as Yup from "yup";
 import { User, UserCreate } from "./Models";
@@ -142,7 +142,7 @@ function UserForm(props: Props) {
         </div>
       </div>
 
-      <Button type="submit" variant="contained" color="success" size="large">
+      <Button type='submit' variant='contained' color='success' size='large'>
         Lägg till
       </Button>
     </form>
