@@ -142,7 +142,7 @@ function UserForm(props: Props) {
         </div>
       </div>
 
-      <Button type="submit" variant="contained" color="success" size="large">
+      <Button type='submit' variant='contained' color='success' size='large'>
         Lägg till
       </Button>
     </form>
