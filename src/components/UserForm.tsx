@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import { ErrorMessage, useFormik } from "formik";
 import { CSSProperties } from "react";
 import * as Yup from "yup";
@@ -42,8 +43,7 @@ function UserForm(props: Props) {
     validateOnChange: true,
     validationSchema: UserSchema,
     onSubmit: (values) => {
-      //TODO: Save to ... and/or or bring to checkout window
-      console.log("Submitting", values);
+      window.localStorage.setItem("user", JSON.stringify(values));
     },
   });
 
@@ -148,7 +148,9 @@ function UserForm(props: Props) {
         </div>
       </div>
 
-      <button>Place Order</button>
+      <Button type="submit" variant="contained" color="success" size="large">
+        Lägg till
+      </Button>
     </form>
   );
 }
