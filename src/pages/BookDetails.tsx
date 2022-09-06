@@ -10,6 +10,7 @@ import "../styles/BookDetails.css";
 function BookDetails() {
   const { id } = useParams();
   const { products, getProduct } = useProduct();
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const product = getProduct(id!);
 
   const boxStyle: CSSProperties = {
