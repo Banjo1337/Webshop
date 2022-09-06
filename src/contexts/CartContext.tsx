@@ -5,13 +5,10 @@ interface ContextValue {
   cart: ProductInCart[];
   addToCart: (product: Book) => void;
   removeFromCart: (product: Book) => void;
+  removeAllQuantitiesFromCart: (product: Book) => void;
 }
 
-const CartContext = createContext<ContextValue>({
-  cart: [],
-  addToCart: () => {},
-  removeFromCart: () => {},
-});
+const CartContext = createContext<ContextValue>({} as ContextValue);
 
 interface Props {
   children: ReactNode;
@@ -27,6 +24,9 @@ function CartProvider({ children }: Props) {
       setCart((prevState) => [...prevState, {...product, number: 1}]);
     }
   };
+
+  const removeAllQuantitiesFromCart = (product: Book) => setCart(prevState => prevState.filter(b => b.id !== product.id));
+
   const removeFromCart = (product: Book) => {
     if(cart.find(p => p.id === product.id)) {
       setCart(prevState => prevState.map(p => p.id === product.id ? {...p, number: p.number - 1 } : p).filter(p => p.number !== 0))
@@ -36,7 +36,7 @@ function CartProvider({ children }: Props) {
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, removeAllQuantitiesFromCart }}>
       {children}
     </CartContext.Provider>
   );

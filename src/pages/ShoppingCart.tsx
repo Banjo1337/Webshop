@@ -11,7 +11,7 @@ import { Box, Button } from '@mui/material';
 import { Link } from "react-router-dom";
 
 export default function ShoppingCart() {
-  const { cart, removeFromCart } = useCart();
+  const { cart, removeFromCart, addToCart, removeAllQuantitiesFromCart } = useCart();
   var formatter = new Intl.NumberFormat('sv-SE', {
     style: 'currency',
     currency: 'SEK',
@@ -53,11 +53,15 @@ export default function ShoppingCart() {
                 <TableCell align="right">{product.author}</TableCell>
                 <TableCell align="right">{product.category}</TableCell>
                 <TableCell align="right">{formatter.format(product.price)}</TableCell>
-                <TableCell align="right">{product.number}</TableCell>
+                <TableCell align="right">
+                  <Button onClick={() => addToCart(product)}>➕</Button>
+                  {product.number}
+                  <Button onClick={() => product.number > 1 && removeFromCart(product)}>➖</Button>
+                </TableCell>
                 <TableCell align="right">
                   <DeleteIcon 
                     sx={{color: "#F5425D", cursor: "pointer"}}
-                    onClick={() => removeFromCart(product)}
+                    onClick={() => removeAllQuantitiesFromCart(product)}
                   />
                   </TableCell>
               </TableRow>
