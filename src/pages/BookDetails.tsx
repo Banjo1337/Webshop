@@ -3,33 +3,34 @@ import { CSSProperties } from "react";
 import { Link, useParams } from "react-router-dom";
 import ShopButton from "../components/ShopButton";
 import { useProduct } from "../contexts/ProductContext";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import PageNotFound from "./PageNotFound";
-import "../styles/BookDetails.css"
-
-
-
+import "../styles/BookDetails.css";
 
 function BookDetails() {
   const { id } = useParams();
-  const { products, getProduct} = useProduct();
+  const { products, getProduct } = useProduct();
   const product = getProduct(id!);
 
-  const boxStyle : CSSProperties = {
+  const boxStyle: CSSProperties = {
     flex: "1",
     minHeight: "500px",
-    display: "flex"
-  }
+    display: "flex",
+  };
 
-  if(Object.keys(product).length === 0) {
-    return <PageNotFound />
+  if (Object.keys(product).length === 0) {
+    return <PageNotFound />;
   }
 
   return (
     <main>
-      <Box className="bookDetailsContainer" sx={{display: "flex"}}>
-        <Box sx={{...boxStyle, justifyContent: "center", alignItems: "center", position: "relative"}}>
-            <Link to="/" style={{
+      <Box className='bookDetailsContainer' sx={{ display: "flex" }}>
+        <Box
+          sx={{ ...boxStyle, justifyContent: "center", alignItems: "center", position: "relative" }}
+        >
+          <Link
+            to='/'
+            style={{
               display: "flex",
               alignItems: "center",
               textDecoration: "none",
@@ -37,68 +38,69 @@ function BookDetails() {
               position: "absolute",
               top: "2rem",
               left: "2rem",
-            }}>
-              <ArrowBackIcon sx={{fontSize: "1.5rem"}}/>
-              <Typography sx={{fontWeight: "500", fontSize: "1.5rem"}}>Tillbaka</Typography>
-            </Link>
-          <Box component="img" src={product.image} />
+            }}
+          >
+            <ArrowBackIcon sx={{ fontSize: "1.5rem" }} />
+            <Typography sx={{ fontWeight: "500", fontSize: "1.5rem" }}>Tillbaka</Typography>
+          </Link>
+          <Box component='img' src={product.image} />
         </Box>
-        <Box sx={{...boxStyle, flex: "2"}}>
-          <Box sx={{padding: "2rem", justifyContent: "space-around", ...boxStyle, flexDirection: "column"}}>
+        <Box sx={{ ...boxStyle, flex: "2" }}>
+          <Box
+            sx={{
+              padding: "2rem",
+              justifyContent: "space-around",
+              ...boxStyle,
+              flexDirection: "column",
+            }}
+          >
             <Box>
               <Typography
-                variant="h4"
-                component="h2"
-                sx={{fontWeight: "500", letterSpacing: "0.2rem"}}
-
+                variant='h4'
+                component='h2'
+                sx={{ fontWeight: "500", letterSpacing: "0.2rem" }}
               >
                 {product.title}
               </Typography>
-              <Typography
-                variant="h5"
-                component="p"
-              >
+              <Typography variant='h5' component='p'>
                 {product.author}
               </Typography>
             </Box>
-            <Typography
-              variant="subtitle1"
-              component="p"
-            >
+            <Typography variant='subtitle1' component='p'>
               {product.category}
             </Typography>
-            <Typography
-              variant="subtitle1"
-              component="p"
-              sx={{}}
-            >
+            <Typography variant='subtitle1' component='p' sx={{}}>
               {product.description}
             </Typography>
 
-          <ShopButton product={product}>{product.price} kr</ShopButton>
+            <ShopButton product={product}>{product.price} kr</ShopButton>
           </Box>
         </Box>
       </Box>
-      <Typography variant="h5" sx={{textAlign: "center", padding: "2rem 0", letterSpacing: ".2rem"}}>
+      <Typography
+        variant='h5'
+        sx={{ textAlign: "center", padding: "2rem 0", letterSpacing: ".2rem" }}
+      >
         Liknande titlar
       </Typography>
-      <Box 
-        className="similarTitlesContainer"
+      <Box
+        className='similarTitlesContainer'
         sx={{
-        display: "flex",
-        justifyContent: "space-around"
-      }}>
-        {
-          products.filter(p => p.category === product.category && p.id !== product.id).slice(0, 5).
-          map(p =>
-          <Link to={"/book/" + p.id} key={p.id}>
-            <Box component="img" src={p.image} sx={{maxHeight: "200px"}}/>
-          </Link> 
-        )}
+          display: "flex",
+          justifyContent: "space-around",
+        }}
+      >
+        {products
+          .filter((p) => p.category === product.category && p.id !== product.id)
+          .slice(0, 5)
+          .map((p) => (
+            <Link to={"/book/" + p.id} key={p.id}>
+              <Box component='img' src={p.image} sx={{ maxHeight: "200px" }} />
+            </Link>
+          ))}
       </Box>
     </main>
-  )
+  );
 }
 
 export default BookDetails;
-

@@ -67,8 +67,7 @@ export const mockedProducts: Book[] = [
     title: "Baka med Frida deluxe ",
     description:
       "Efter tre storsäljande ”deluxeböcker” kommer nu äntligen bakdrottningen Frida Skattbergs stora bok ”Baka med Frida deluxe”, fylld med nya recept. Här hittar du allt i bakväg, från matbröd och sötebröd till småkakor, cupcakes och tårtor. Och som om det inte räcker finns här även ett kapitel om godis att ta till när sötsuget blir akut.",
-    image:
-      "https://s2.adlibris.com/images/63264436/signerad-baka-med-frida-deluxe.jpg",
+    image: "https://s2.adlibris.com/images/63264436/signerad-baka-med-frida-deluxe.jpg",
     author: "Frida Skattberg",
     category: "Kokbok",
   },
@@ -108,8 +107,7 @@ export const mockedProducts: Book[] = [
     title: "Livet efter 40 : en guide för män",
     description:
       "Varför är 40-årskriser så pass vanliga att det till och med finns ett begrepp för dem? Varför får många män pinnben, platt röv och putmage när de blir äldre och vad kan man göra för att hålla kroppen i trim efter 40? Vad innebär en förstorad prostata och stämmer det att testosteronhalten sjunker hos män när de blir äldre? Och hur kommer det sig att bilden av en äldre man ofta är den av en ensam och vresig farbror?",
-    image:
-      "https://s2.adlibris.com/images/62591678/livet-efter-40-en-guide-for-man.jpg",
+    image: "https://s2.adlibris.com/images/62591678/livet-efter-40-en-guide-for-man.jpg",
     author: "Nisse Edwall",
     category: "Fakta",
   },
@@ -119,8 +117,7 @@ export const mockedProducts: Book[] = [
     title: "21 Day Challenge - Keto",
     description:
       "I sin nya kokboksserie med kostscheman och recept för 21 dagar visar Ulrika Davidsson hur du ökar kroppens fettförbränning med den populära och enkla ketodieten! Genom naturligt protein, hälsosamma fetter och grönsaker har ketodieten snabbt vuxit till en av de mest omtyckta kosthållningarna. Ulrikas goda, mättande och snabblagade recept ger dig matglädje, ett stabilt blodsocker och gör skillnad på vågen.",
-    image:
-      "https://s2.adlibris.com/images/62764252/21-day-challenge---keto.jpg",
+    image: "https://s2.adlibris.com/images/62764252/21-day-challenge---keto.jpg",
     author: "Ulrika Davidsson",
     category: "Kokbok",
   },
@@ -182,8 +179,7 @@ export const mockedProducts: Book[] = [
     title: "Supercoola hjältegänget",
     description:
       "I Gråköping händer det aldrig någonting. Det vet Sonya, som bott där hela sitt liv men ändå alltid sitter ensam på rasterna. Tills Rickard flyttar till stan, och allt börjar hända väldigt snabbt. Plötsligt stöter de nyblivna vännerna på ett rymdskepp inne i skogen, och det är inte precis vänligt sinnade aliens som dykt upp, utan den onde rymdhärskaren Rasputin! Men när Sonya och Rickard försöker varna sina lärare är det ingen som tror dem. De måste samla bevis -- innan det är för sent.",
-    image:
-      "https://s2.adlibris.com/images/62571741/supercoola-hjalteganget-och-zombieskolan.jpg",
+    image: "https://s2.adlibris.com/images/62571741/supercoola-hjalteganget-och-zombieskolan.jpg",
     author: "Johan Wanloo",
     category: "Barnbok",
   },

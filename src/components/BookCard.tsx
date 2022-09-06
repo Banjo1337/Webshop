@@ -20,22 +20,13 @@ const BookCard = ({ book, children }: Props) => {
       }}
     >
       <Link to={`/book/${book.id}`}>
-        <CardMedia
-          component="img"
-          height="300"
-          image={book.image}
-          alt={book.title + " cover"}
-        />
+        <CardMedia component='img' height='300' image={book.image} alt={book.title + " cover"} />
       </Link>
       <CardContent>
-        <Typography gutterBottom variant="body2">
+        <Typography gutterBottom variant='body2'>
           {book.title}
         </Typography>
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          style={{ paddingBottom: ".3rem" }}
-        >
+        <Typography variant='body2' color='text.secondary' style={{ paddingBottom: ".3rem" }}>
           {book.author}
         </Typography>
         {children}

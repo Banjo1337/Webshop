@@ -6,16 +6,10 @@ import { User, UserCreate } from "./Models";
 type UserRecord = Record<keyof UserCreate, Yup.AnySchema>;
 
 const UserSchema = Yup.object().shape<UserRecord>({
-  firstName: Yup.string()
-    .min(2, "*Minst 2 bokstäver")
-    .required("*Obligatoriskt"),
-  lastName: Yup.string()
-    .min(2, "*Minst 2 bokstäver")
-    .required("*Obligatoriskt"),
+  firstName: Yup.string().min(2, "*Minst 2 bokstäver").required("*Obligatoriskt"),
+  lastName: Yup.string().min(2, "*Minst 2 bokstäver").required("*Obligatoriskt"),
   email: Yup.string().email("*Ej giltig email").required("*Obligatoriskt"),
-  phone: Yup.string()
-    .min(6, "*Ej giltigt telefonnummer")
-    .required("*Obligatoriskt"),
+  phone: Yup.string().min(6, "*Ej giltigt telefonnummer").required("*Obligatoriskt"),
   address: Yup.string().min(3, "*Ej giltig adress").required("*Obligatoriskt"),
   postcode: Yup.string()
     .min(5, "*Ej giltigt postnummer")
@@ -52,9 +46,9 @@ function UserForm(props: Props) {
       <div style={userInfoStyle}>
         <div style={flexColumn}>
           <input
-            placeholder="Förnamn"
-            type="text"
-            name="firstName"
+            placeholder='Förnamn'
+            type='text'
+            name='firstName'
             value={formik.values.firstName}
             onChange={formik.handleChange}
           />
@@ -65,9 +59,9 @@ function UserForm(props: Props) {
 
         <div style={flexColumn}>
           <input
-            placeholder="Efternamn"
-            type="text"
-            name="lastName"
+            placeholder='Efternamn'
+            type='text'
+            name='lastName'
             value={formik.values.lastName}
             onChange={formik.handleChange}
           />
@@ -80,9 +74,9 @@ function UserForm(props: Props) {
       <div style={userInfoStyle}>
         <div style={flexColumn}>
           <input
-            placeholder="Email"
-            type="text"
-            name="email"
+            placeholder='Email'
+            type='text'
+            name='email'
             value={formik.values.email}
             onChange={formik.handleChange}
           />
@@ -93,9 +87,9 @@ function UserForm(props: Props) {
 
         <div style={flexColumn}>
           <input
-            placeholder="Telefon"
-            type="text"
-            name="phone"
+            placeholder='Telefon'
+            type='text'
+            name='phone'
             value={formik.values.phone}
             onChange={formik.handleChange}
           />
@@ -108,9 +102,9 @@ function UserForm(props: Props) {
       <div style={userInfoStyle}>
         <div style={flexColumn}>
           <input
-            placeholder="Adress"
-            type="text"
-            name="address"
+            placeholder='Adress'
+            type='text'
+            name='address'
             value={formik.values.address}
             onChange={formik.handleChange}
           />
@@ -121,9 +115,9 @@ function UserForm(props: Props) {
 
         <div style={flexColumn}>
           <input
-            placeholder="Postnummer"
-            type="text"
-            name="postcode"
+            placeholder='Postnummer'
+            type='text'
+            name='postcode'
             value={formik.values.postcode}
             onChange={formik.handleChange}
           />
@@ -136,9 +130,9 @@ function UserForm(props: Props) {
       <div style={userInfoStyle}>
         <div style={flexColumn}>
           <input
-            placeholder="Stad"
-            type="text"
-            name="city"
+            placeholder='Stad'
+            type='text'
+            name='city'
             value={formik.values.city}
             onChange={formik.handleChange}
           />
