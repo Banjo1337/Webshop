@@ -31,6 +31,7 @@ function ProductForm(props: Props) {
     validationSchema: ProductSchema,
     onSubmit: (values) => {
       console.log("On SUBMIT", values);
+      console.log(props);
     },
   });
 
