@@ -48,9 +48,7 @@ function Books() {
         }}
       >
         {books
-          .filter((b) =>
-            b.category.toLowerCase().includes(categoryFilter.toLowerCase())
-          )
+          .filter((b) => b.category.toLowerCase().includes(categoryFilter.toLowerCase()))
           .map((book) => (
             <div
               key={book.id}

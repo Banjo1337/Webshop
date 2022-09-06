@@ -16,8 +16,7 @@ const ShopButton = ({ children, product }: Props) => {
 
   useEffect(() => {
     return setOpen(false);
-  }, [product])
-
+  }, [product]);
 
   function handleClick() {
     addToCart(product);
@@ -28,20 +27,20 @@ const ShopButton = ({ children, product }: Props) => {
     <div>
       <Button
         endIcon={<LocalGroceryStoreIcon />}
-        variant="contained"
-        color="error"
-        size="large"
+        variant='contained'
+        color='error'
+        size='large'
         onClick={handleClick}
       >
         {children}
-      </Button>   
+      </Button>
 
       <AddedToCartToast
         message={`${product.title} added to cart 🐸`}
-        severity="success"
+        severity='success'
         open={open}
         setOpen={setOpen}
-      />      
+      />
     </div>
   );
 };

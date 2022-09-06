@@ -15,11 +15,7 @@ const ButtonGroup = ({ children }: Props) => {
         },
       }}
     >
-      <BG
-        orientation="vertical"
-        aria-label="vertical contained button group"
-        variant="text"
-      >
+      <BG orientation='vertical' aria-label='vertical contained button group' variant='text'>
         {children}
       </BG>
     </Box>

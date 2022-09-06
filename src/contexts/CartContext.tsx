@@ -18,18 +18,25 @@ function CartProvider({ children }: Props) {
   const [cart, setCart] = useState<ProductInCart[]>([]);
 
   const addToCart = (product: Book) => {
-    if(cart.find(p => p.id === product.id)) {
-      setCart(prevState => prevState.map(p => p.id === product.id ? {...p, number: p.number + 1 } : p))
+    if (cart.find((p) => p.id === product.id)) {
+      setCart((prevState) =>
+        prevState.map((p) => (p.id === product.id ? { ...p, number: p.number + 1 } : p)),
+      );
     } else {
-      setCart((prevState) => [...prevState, {...product, number: 1}]);
+      setCart((prevState) => [...prevState, { ...product, number: 1 }]);
     }
   };
 
-  const removeAllQuantitiesFromCart = (product: Book) => setCart(prevState => prevState.filter(b => b.id !== product.id));
+  const removeAllQuantitiesFromCart = (product: Book) =>
+    setCart((prevState) => prevState.filter((b) => b.id !== product.id));
 
   const removeFromCart = (product: Book) => {
-    if(cart.find(p => p.id === product.id)) {
-      setCart(prevState => prevState.map(p => p.id === product.id ? {...p, number: p.number - 1 } : p).filter(p => p.number !== 0))
+    if (cart.find((p) => p.id === product.id)) {
+      setCart((prevState) =>
+        prevState
+          .map((p) => (p.id === product.id ? { ...p, number: p.number - 1 } : p))
+          .filter((p) => p.number !== 0),
+      );
     } else {
       setCart((prevState) => prevState.filter((p) => p.id !== product.id));
     }

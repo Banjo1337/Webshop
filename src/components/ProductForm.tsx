@@ -30,50 +30,50 @@ function ProductForm(props: Props) {
     validateOnChange: true,
     validationSchema: ProductSchema,
     onSubmit: (values) => {
-      console.log("On SUBMIT", values); // to modify later on
+      console.log("On SUBMIT", values);
     },
   });
 
   return (
     <form onSubmit={formik.handleSubmit}>
       <input
-        placeholder="Title"
-        type="text"
+        placeholder='Title'
+        type='text'
         value={formik.values.title}
         onChange={formik.handleChange}
       />
       {formik.touched.title && formik.errors.title}
       <input
-        placeholder="Author"
-        type="text"
+        placeholder='Author'
+        type='text'
         value={formik.values.author}
         onChange={formik.handleChange}
       />
       {formik.touched.author && formik.errors.author}
       <input
-        placeholder="Description"
-        type="text"
+        placeholder='Description'
+        type='text'
         value={formik.values.description}
         onChange={formik.handleChange}
       />
       {formik.touched.description && formik.errors.description}
       <input
-        placeholder="Price"
-        type="text"
+        placeholder='Price'
+        type='text'
         value={formik.values.price}
         onChange={(e) => formik.setFieldValue("price", Number(e.target.value))}
       />
       {formik.touched.price && formik.errors.price}
       <input
-        placeholder="Image"
-        type="text"
+        placeholder='Image'
+        type='text'
         value={formik.values.image}
         onChange={formik.handleChange}
       />
       {formik.touched.image && formik.errors.category}
       <input
-        placeholder="Category"
-        type="text"
+        placeholder='Category'
+        type='text'
         value={formik.values.category}
         onChange={formik.handleChange}
       />

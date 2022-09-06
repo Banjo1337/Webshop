@@ -11,14 +11,14 @@ import OrderConfirmation from "./pages/OrderConfirmation";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Header />}>
+      <Route path='/' element={<Header />}>
         <Route index element={<Books />} />
-        <Route path="book/:id" element={<BookDetails />} />
-        <Route path="shoppingcart" element={<ShoppingCart />} />
-        <Route path="admincms" element={<AdminCMS />} />
-        <Route path="checkout" element={<Checkout />} />
-        <Route path="orderconfirmation" element={<OrderConfirmation />} />
-        <Route path="*" element={<PageNotFound />} />
+        <Route path='book/:id' element={<BookDetails />} />
+        <Route path='shoppingcart' element={<ShoppingCart />} />
+        <Route path='admincms' element={<AdminCMS />} />
+        <Route path='checkout' element={<Checkout />} />
+        <Route path='orderconfirmation' element={<OrderConfirmation />} />
+        <Route path='*' element={<PageNotFound />} />
       </Route>
     </Routes>
   );
