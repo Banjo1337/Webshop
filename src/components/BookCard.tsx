@@ -12,21 +12,26 @@ const BookCard = ({ book, children }: Props) => {
   return (
     <Card
       sx={{
-        maxWidth: "12rem",
-        minHeight: "30rem",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
       }}
     >
       <Link to={`/book/${book.id}`}>
-        <CardMedia component='img' height='300' image={book.image} alt={book.title + " cover"} />
+        <CardMedia component='img' height='100%' image={book.image} alt={book.title + " cover"} />
       </Link>
-      <CardContent>
+      <CardContent
+        sx={{
+          padding: "5px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         <Typography gutterBottom variant='body2'>
           {book.title}
         </Typography>
-        <Typography variant='body2' color='text.secondary' style={{ paddingBottom: ".3rem" }}>
+        <Typography variant='body2' color='text.secondary'>
           {book.author}
         </Typography>
         {children}

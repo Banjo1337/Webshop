@@ -1,7 +1,6 @@
-import { Button } from "@mui/material";
+import { Button, ButtonGroup, Grid } from "@mui/material";
 import { useState } from "react";
 import BookCard from "../components/BookCard";
-import ButtonGroup from "../components/ButtonGroup";
 import ShopButton from "../components/ShopButton";
 import { mockedProducts } from "../data";
 
@@ -21,48 +20,20 @@ function Books() {
   ];
 
   return (
-    <main
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        padding: "1rem",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          flex: 1,
-          padding: ".4rem",
-          position: "fixed",
-        }}
-      >
-        <ButtonGroup>{buttons}</ButtonGroup>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          flex: 9,
-          marginLeft: "15%",
-        }}
-      >
+    <div style={{ padding: "1rem", display: "flex", flexDirection: "column", marginTop: "50px" }}>
+      <ButtonGroup sx={{ display: "flex", flexDirection: "row" }}>{buttons}</ButtonGroup>
+      <Grid container spacing={1}>
         {books
           .filter((b) => b.category.toLowerCase().includes(categoryFilter.toLowerCase()))
           .map((book) => (
-            <div
-              key={book.id}
-              style={{
-                padding: ".5rem",
-              }}
-            >
+            <Grid key={book.id} item xs={4} sm={3} md={2} lg={1.5}>
               <BookCard book={book}>
                 <ShopButton product={book}>{book.price} kr</ShopButton>
               </BookCard>
-            </div>
+            </Grid>
           ))}
-      </div>
-    </main>
+      </Grid>
+    </div>
   );
 }
 
