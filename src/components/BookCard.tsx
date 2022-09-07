@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Book } from "./Models";
@@ -12,20 +12,19 @@ const BookCard = ({ book, children }: Props) => {
   return (
     <Card
       sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
+        height: "400px",
       }}
     >
       <Link to={`/book/${book.id}`}>
-        <CardMedia component='img' height='100%' image={book.image} alt={book.title + " cover"} />
+        <CardMedia component='img' height='250px' image={book.image} alt={book.title + " cover"} />
       </Link>
       <CardContent
         sx={{
           padding: "5px",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
+          textAlign: "center",
+          height: "150px",
         }}
       >
         <Typography gutterBottom variant='body2'>
@@ -34,7 +33,17 @@ const BookCard = ({ book, children }: Props) => {
         <Typography variant='body2' color='text.secondary'>
           {book.author}
         </Typography>
-        {children}
+        <Box
+          sx={{
+            display: "flex",
+            flex: "1",
+            alignItems: "flex-end",
+            justifyContent: "center",
+            marginBottom: "10px",
+          }}
+        >
+          {children}
+        </Box>
       </CardContent>
     </Card>
   );
