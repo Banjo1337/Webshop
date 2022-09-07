@@ -23,6 +23,9 @@ export default function ProductProvider({ children }: Props) {
   );
 
   useEffect(() => {
+    if (products.length === 0) {
+      setProducts(mockedProducts);
+    }
     localStorage.setItem("products", JSON.stringify(products));
   }, [products]);
 
