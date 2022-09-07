@@ -6,28 +6,19 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
-import AddIcon from "@mui/icons-material/Add";
 import { Box } from "@mui/material";
 import { useProduct } from "../contexts/ProductContext";
-import { Link, Outlet } from "react-router-dom";
 
-export default function AdminCMS() {
-  const { products, removeProduct, editProduct } = useProduct();
+export default function AddBookAdmin() {
+  const { products} = useProduct();
   const formatter = new Intl.NumberFormat("sv-SE", {
     style: "currency",
     currency: "SEK",
   });
-  const linkStyle = {
-    display: "flex",
-    textDecoration: "none",
-    color: "white",
-  };
 
   return (
     <main style={{ display: "flex", flexDirection: "column" }}>
-      <h2>Bokmal.se - Admin page</h2>
+      <h2>Add a new book</h2>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label='simple table'>
           <TableHead>
@@ -39,14 +30,7 @@ export default function AdminCMS() {
               <TableCell align='center'>Genre</TableCell>
               <TableCell align='center'>Price</TableCell>
               <TableCell align='center'>Description</TableCell>
-              <TableCell align='right'>
-                <Link to='addbookadmin' style={linkStyle}>
-                  <AddIcon
-                    sx={{ color: "#F5425D", cursor: "pointer" }}
-                    //onClick={() => console.log("addProduct function")}
-                  />
-                </Link>
-              </TableCell>
+              <TableCell align='right'></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -68,14 +52,6 @@ export default function AdminCMS() {
                 <TableCell align='center'>{formatter.format(product.price)}</TableCell>
                 <TableCell align='left'>{product.description}</TableCell>
                 <TableCell align='right'>
-                  <EditIcon
-                    sx={{ color: "#F5425D", cursor: "pointer" }}
-                    onClick={() => editProduct(product)}
-                  />
-                  <DeleteIcon
-                    sx={{ color: "#F5425D", cursor: "pointer" }}
-                    onClick={() => removeProduct(product)}
-                  />
                 </TableCell>
               </TableRow>
             ))}
@@ -83,7 +59,6 @@ export default function AdminCMS() {
         </Table>
       </TableContainer>
       <ProductForm />
-      <Outlet />
     </main>
   );
 }

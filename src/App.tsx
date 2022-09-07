@@ -7,6 +7,8 @@ import Checkout from "./pages/Checkout";
 import PageNotFound from "./pages/PageNotFound";
 import ShoppingCart from "./pages/ShoppingCart";
 import OrderConfirmation from "./pages/OrderConfirmation";
+import AddBookAdmin from "./pages/AddBookAdmin";
+//import UpdateBookAdmin from "./pages/UpdateBookAdmin";
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
         <Route index element={<Books />} />
         <Route path='book/:id' element={<BookDetails />} />
         <Route path='shoppingcart' element={<ShoppingCart />} />
-        <Route path='admincms' element={<AdminCMS />} />
+        <Route path='admincms' element={<AdminCMS />}>
+          <Route path='addbookadmin' element={<AddBookAdmin />} />
+        </Route>
         <Route path='checkout' element={<Checkout />} />
         <Route path='orderconfirmation' element={<OrderConfirmation />} />
         <Route path='*' element={<PageNotFound />} />
