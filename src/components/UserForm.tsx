@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import { CSSProperties } from "react";
 import * as Yup from "yup";
 import { User, UserCreate } from "./Models";
+import DialogPopup from "./DialogPopup";
 
 type UserRecord = Record<keyof UserCreate, Yup.AnySchema>;
 
@@ -141,10 +142,10 @@ function UserForm(props: Props) {
           ) : null}
         </div>
       </div>
-
       <Button type='submit' variant='contained' color='success' size='large'>
         Lägg till
       </Button>
+      <DialogPopup />
     </form>
   );
 }
