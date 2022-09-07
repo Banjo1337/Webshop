@@ -6,12 +6,12 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useState } from "react";
 import BookCard from "../components/BookCard";
 import ShopButton from "../components/ShopButton";
-import { mockedProducts } from "../data";
+import { useProduct } from "../contexts/ProductContext";
 
 function Books() {
-  const [books] = useState(mockedProducts);
+  const { products: books } = useProduct();
   const [categoryFilter, setCategoryFilter] = useState("");
-  const categories = [...new Set(mockedProducts.map((book) => book.category))];
+  const categories = [...new Set(books.map((book) => book.category))];
   const handleChange = (event: SelectChangeEvent) => {
     setCategoryFilter(event.target.value);
   };
@@ -20,10 +20,10 @@ function Books() {
     <main>
       <div style={{ display: "flex", flexDirection: "column", margin: "1rem 1rem" }}>
         <FormControl variant='standard' sx={{ m: "1rem 0" }}>
-          <InputLabel id='demo-simple-select-standard-label'>Välj en kategori</InputLabel>
+          <InputLabel id='simple-select-standard-label'>Välj en kategori</InputLabel>
           <Select
-            labelId='demo-simple-select-standard-label'
-            id='demo-simple-select-standard'
+            labelId='simple-select-standard-label'
+            id='simple-select-standard'
             value={categoryFilter}
             onChange={handleChange}
             label='Category'
