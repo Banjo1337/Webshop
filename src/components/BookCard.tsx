@@ -12,11 +12,17 @@ const BookCard = ({ book, children }: Props) => {
   return (
     <Card
       sx={{
-        height: "400px",
+        height: "500px",
       }}
     >
       <Link to={`/book/${book.id}`}>
-        <CardMedia component='img' height='250px' image={book.image} alt={book.title + " cover"} />
+        <CardMedia
+          style={{ objectFit: "contain" }}
+          component='img'
+          height='250px'
+          image={book.image}
+          alt={book.title + " cover"}
+        />
       </Link>
       <CardContent
         sx={{
