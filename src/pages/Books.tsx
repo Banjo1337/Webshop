@@ -1,66 +1,52 @@
-import { Button } from "@mui/material";
+import { Grid } from "@mui/material";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useState } from "react";
 import BookCard from "../components/BookCard";
-import ButtonGroup from "../components/ButtonGroup";
 import ShopButton from "../components/ShopButton";
-import { mockedProducts } from "../data";
+import { useProduct } from "../contexts/ProductContext";
 
 function Books() {
-  const [books] = useState(mockedProducts);
+  const { products: books } = useProduct();
   const [categoryFilter, setCategoryFilter] = useState("");
-  const categories = [...new Set(mockedProducts.map((book) => book.category))];
-  const buttons = [
-    <Button key={-1} onClick={() => setCategoryFilter("")}>
-      Alla böcker
-    </Button>,
-    categories.map((c) => (
-      <Button key={categories.indexOf(c)} onClick={() => setCategoryFilter(c)}>
-        {c}
-      </Button>
-    )),
-  ];
+  const categories = [...new Set(books.map((book) => book.category))];
+  const handleChange = (event: SelectChangeEvent) => {
+    setCategoryFilter(event.target.value);
+  };
 
   return (
-    <main
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        padding: "1rem",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          flex: 1,
-          padding: ".4rem",
-          position: "fixed",
-        }}
-      >
-        <ButtonGroup>{buttons}</ButtonGroup>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          flex: 9,
-          marginLeft: "15%",
-        }}
-      >
-        {books
-          .filter((b) => b.category.toLowerCase().includes(categoryFilter.toLowerCase()))
-          .map((book) => (
-            <div
-              key={book.id}
-              style={{
-                padding: ".5rem",
-              }}
-            >
-              <BookCard book={book}>
-                <ShopButton product={book}>{book.price} kr</ShopButton>
-              </BookCard>
-            </div>
-          ))}
+    <main>
+      <div style={{ display: "flex", flexDirection: "column", margin: "1rem 1rem" }}>
+        <FormControl variant='standard' sx={{ m: "1rem 0" }}>
+          <InputLabel id='simple-select-standard-label'>Välj en kategori</InputLabel>
+          <Select
+            labelId='simple-select-standard-label'
+            id='simple-select-standard'
+            value={categoryFilter}
+            onChange={handleChange}
+            label='Category'
+          >
+            <MenuItem value=''>Alla böcker</MenuItem>
+            {categories.map((c) => (
+              <MenuItem key={c} value={c}>
+                {c}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <Grid container spacing={1}>
+          {books
+            .filter((b) => b.category.toLowerCase().includes(categoryFilter.toLowerCase()))
+            .map((book) => (
+              <Grid key={book.id} item xs={6} sm={4} md={2} lg={2} xl={2}>
+                <BookCard book={book}>
+                  <ShopButton product={book}>{book.price} kr</ShopButton>
+                </BookCard>
+              </Grid>
+            ))}
+        </Grid>
       </div>
     </main>
   );
