@@ -10,7 +10,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { Box } from "@mui/material";
-import { useProduct } from "../contexts/ProductContext";
+import { useProduct } from "../../contexts/ProductContext";
 import { Link, Outlet } from "react-router-dom";
 
 export default function AdminCMS() {
@@ -69,10 +69,11 @@ export default function AdminCMS() {
                 <TableCell align='center'>{formatter.format(product.price)}</TableCell>
                 <TableCell align='left'>{product.description}</TableCell>
                 <TableCell align='right'>
-                  <EditIcon
-                    sx={{ color: "#F5425D", cursor: "pointer" }}
-                    onClick={() => editProduct(product)}
-                  />
+                  <Link to='updatebookadmin' style={linkStyle}>
+                    <EditIcon
+                      sx={{ color: "#F5425D", cursor: "pointer" }}
+                    />
+                  </Link>
                   <DeleteIcon
                     sx={{ color: "#F5425D", cursor: "pointer" }}
                     onClick={() => removeProduct(product)}
