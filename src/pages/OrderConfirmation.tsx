@@ -7,8 +7,11 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Box } from "@mui/material";
 import Paper from "@mui/material/Paper";
+import { User } from "../components/Models";
+import { CSSProperties } from "react";
 
 function OrderConfirmation() {
+  const user: User = JSON.parse(window.localStorage.getItem("user") || "{}");
   const { cart } = useCart();
   const totalPrice = cart.reduce(
     (totalPrice, product) => (totalPrice = totalPrice + product.price * product.number),
@@ -84,8 +87,28 @@ function OrderConfirmation() {
           </TableBody>
         </Table>
       </TableContainer>
+      <div style={confirmationStyle}>
+        <h3>Tack för din beställning {user.firstName}! </h3>
+        <p>
+          En orderbekräftelse kommer skickas till: <b>{user.email}</b>
+        </p>
+        <p>
+          Din order levereras till:{" "}
+          <b>
+            {user.address}, {user.postcode} {user.city}
+          </b>
+        </p>
+      </div>
     </main>
   );
 }
+
+const confirmationStyle: CSSProperties = {
+  boxShadow: "1px 2px 9px #F4AAB9",
+  margin: "4em",
+  padding: "1em",
+  fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+  alignSelf: "center",
+};
 
 export default OrderConfirmation;
