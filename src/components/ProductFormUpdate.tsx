@@ -1,4 +1,4 @@
-import { useFormik} from "formik";
+import { useFormik } from "formik";
 import { CSSProperties, useEffect, useState } from "react";
 import { Book, ProductCreate } from "./Models";
 import * as Yup from "yup";
@@ -38,7 +38,7 @@ function ProductForm(props: Props) {
   const options = [
     { value: "roman", label: "Roman", id: 1 },
     { value: "deckare", label: "Deckare", id: 2 },
-    { value: "kokbok", label: "Kokbok", id: 3},
+    { value: "kokbok", label: "Kokbok", id: 3 },
     { value: "barnbok", label: "Barnbok", id: 4 },
     { value: "träning", label: "Träning", id: 5 },
     { value: "fakta", label: "Fakta", id: 6 },

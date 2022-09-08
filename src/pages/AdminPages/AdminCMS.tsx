@@ -70,9 +70,7 @@ export default function AdminCMS() {
                 <TableCell align='left'>{product.description}</TableCell>
                 <TableCell align='right'>
                   <Link to='updatebookadmin' style={linkStyle}>
-                    <EditIcon
-                      sx={{ color: "#F5425D", cursor: "pointer" }}
-                    />
+                    <EditIcon sx={{ color: "#F5425D", cursor: "pointer" }} />
                   </Link>
                   <DeleteIcon
                     sx={{ color: "#F5425D", cursor: "pointer" }}
