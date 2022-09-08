@@ -1,9 +1,10 @@
 import { Button } from "@mui/material";
 import { useFormik } from "formik";
-import { CSSProperties } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import * as Yup from "yup";
 import { User, UserCreate } from "./Models";
 import DialogPopup from "./DialogPopup";
+import AddedToCartToast from "./AddedToCartToast";
 
 type UserRecord = Record<keyof UserCreate, Yup.AnySchema>;
 
@@ -15,7 +16,7 @@ const UserSchema = Yup.object().shape<UserRecord>({
   address: Yup.string().min(3, "*Ej giltig adress").required("*Obligatoriskt"),
   postcode: Yup.string()
     .min(5, "*Ej giltigt postnummer")
-    .max(5, "*Ej giltigt postnummer")
+    .max(6, "*Ej giltigt postnummer")
     .required("*Obligatoriskt"),
   city: Yup.string().min(2).required("*Obligatoriskt"),
 });
@@ -25,6 +26,15 @@ interface Props {
 }
 
 function UserForm(props: Props) {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    return setOpen(false);
+  }, []);
+
+  function handleClick() {
+    if (formik.isValid) setOpen(true);
+    else setOpen(false);
+  }
   const formik = useFormik<UserCreate>({
     initialValues: props.user || {
       firstName: "",
@@ -39,6 +49,7 @@ function UserForm(props: Props) {
     validationSchema: UserSchema,
     onSubmit: (values) => {
       window.localStorage.setItem("user", JSON.stringify(values));
+      handleClick();
     },
   });
 
@@ -145,6 +156,12 @@ function UserForm(props: Props) {
       <Button type='submit' variant='contained' color='success' size='large'>
         Lägg till
       </Button>
+      <AddedToCartToast
+        message={`${""} Dina uppgifter har sparats 🐸`}
+        severity='success'
+        open={open}
+        setOpen={setOpen}
+      />
       <DialogPopup />
     </form>
   );
