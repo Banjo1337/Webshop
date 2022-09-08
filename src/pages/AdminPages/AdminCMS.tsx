@@ -68,7 +68,7 @@ export default function AdminCMS() {
                 <TableCell align='center'>{product.category}</TableCell>
                 <TableCell align='center'>{formatter.format(product.price)}</TableCell>
                 <TableCell align='left'>{product.description}</TableCell>
-                <TableCell align='right'>
+                <TableCell align='right' >
                   <Link to='updatebookadmin' state={{id: product.id}} style={linkStyle}>
                     <EditIcon sx={{ color: "#F5425D", cursor: "pointer" }} />
                   </Link>

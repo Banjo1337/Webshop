@@ -7,9 +7,13 @@ export default function UpdateBookAdmin() {
   const location = useLocation();
   const { id } = location.state;
   const {products} = useProduct();
+  const bookToUpdate = products.find((product) => product.id === id) || ({} as Book);
   return (
     <main>
-      <ProductFormUpdate formName='updatebook' book={products.find((product) => product.id === id) || ({} as Book)} />
+      <ProductFormUpdate
+        formName='updatebook1'
+        book = {bookToUpdate}
+      />
     </main>
   );
 }
