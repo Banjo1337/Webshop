@@ -43,7 +43,9 @@ export default function AddBookAdmin() {
             image: value.newbook.image,
             category: value.newbook.category,
           };
+          console.log(newBook);
           addProduct(newBook);
+          window.localStorage.setItem("newbook", JSON.stringify(newBook));
         }}
       >
         {() => (
