@@ -10,9 +10,8 @@ import { useTheme } from "@mui/material/styles";
 import { User } from "./Models";
 import { Link } from "react-router-dom";
 
-const user: User = JSON.parse(window.localStorage.getItem("user") || "{}");
-
 export default function ResponsiveDialog() {
+  const user: User = JSON.parse(window.localStorage.getItem("user") || "{}");
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
