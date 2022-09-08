@@ -33,9 +33,7 @@ export default function AddBookAdmin() {
         //validationSchema={ProductSchema}
         initialValues={initialCreateProductFormValues}
         onSubmit={(value: any) => {
-          console.log(value);
           const Id = nanoid();
-          console.log(Id);
           const newBook: Book = {
             id: Id,
             author: value.newbook.author,
