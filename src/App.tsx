@@ -1,12 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
-import AdminCMS from "./pages/AdminCMS";
+import AdminCMS from "./pages/AdminPages/AdminCMS";
 import BookDetails from "./pages/BookDetails";
 import Books from "./pages/Books";
 import Checkout from "./pages/Checkout";
 import PageNotFound from "./pages/PageNotFound";
 import ShoppingCart from "./pages/ShoppingCart";
 import OrderConfirmation from "./pages/OrderConfirmation";
+import AddBookAdmin from "./pages/AdminPages/AddBookAdmin";
+import UpdateBookAdmin from "./pages/AdminPages/UpdateBookAdmin";
 
 function App() {
   return (
@@ -15,7 +17,10 @@ function App() {
         <Route index element={<Books />} />
         <Route path='book/:id' element={<BookDetails />} />
         <Route path='shoppingcart' element={<ShoppingCart />} />
-        <Route path='admincms' element={<AdminCMS />} />
+        <Route path='admincms' element={<AdminCMS />}>
+          <Route path='addbookadmin' element={<AddBookAdmin />} />
+          <Route path='updatebookadmin' element={<UpdateBookAdmin />} />
+        </Route>
         <Route path='checkout' element={<Checkout />} />
         <Route path='orderconfirmation' element={<OrderConfirmation />} />
         <Route path='*' element={<PageNotFound />} />

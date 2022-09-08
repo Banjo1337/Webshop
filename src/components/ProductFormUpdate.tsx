@@ -149,7 +149,7 @@ function ProductForm(props: Props) {
         </div>
       </div>
       <Button type='submit' variant='contained' color='success' size='large'>
-        Lägg till boken
+        Updatera boken
       </Button>
       <AddedNewBookToast
         message={`${""} Din bok har sparats 🐸`}

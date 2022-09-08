@@ -33,3 +33,16 @@ export interface User {
   postcode: string;
   city: string;
 }
+
+export interface CreateProductFormValues {
+  createProduct: ProductCreate;
+}
+
+export const initialCreateProductFormValues: ProductCreate = {
+  price: 0,
+  title: "",
+  description: "",
+  author: "",
+  image: "",
+  category: "",
+};
