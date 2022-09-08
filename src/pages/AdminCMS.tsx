@@ -1,4 +1,3 @@
-import ProductForm from "../components/ProductForm";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -9,6 +8,7 @@ import Paper from "@mui/material/Paper";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import { Box } from "@mui/material";
 import { useProduct } from "../contexts/ProductContext";
 import { Link, Outlet } from "react-router-dom";
@@ -28,6 +28,7 @@ export default function AdminCMS() {
   return (
     <main style={{ display: "flex", flexDirection: "column" }}>
       <h2>Bokmal.se - Admin page</h2>
+      <Outlet />
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label='simple table'>
           <TableHead>
@@ -41,10 +42,10 @@ export default function AdminCMS() {
               <TableCell align='center'>Description</TableCell>
               <TableCell align='right'>
                 <Link to='addbookadmin' style={linkStyle}>
-                  <AddIcon
-                    sx={{ color: "#F5425D", cursor: "pointer" }}
-                    //onClick={() => console.log("addProduct function")}
-                  />
+                  <AddIcon sx={{ color: "#F5425D", cursor: "pointer" }} />
+                </Link>
+                <Link to='../admincms' style={linkStyle}>
+                  <RemoveIcon sx={{ color: "#F5425D", cursor: "pointer" }} />
                 </Link>
               </TableCell>
             </TableRow>
@@ -82,8 +83,6 @@ export default function AdminCMS() {
           </TableBody>
         </Table>
       </TableContainer>
-      <ProductForm />
-      <Outlet />
     </main>
   );
 }
