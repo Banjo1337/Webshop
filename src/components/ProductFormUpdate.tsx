@@ -2,7 +2,6 @@ import { useFormik } from "formik";
 import { CSSProperties, useEffect, useState } from "react";
 import { Book, ProductCreate } from "./Models";
 import * as Yup from "yup";
-import { nanoid } from "nanoid";
 import { useProduct } from "../contexts/ProductContext";
 import AddedNewBookToast from "./AddedNewBookToast";
 import { Button } from "@mui/material";
@@ -19,12 +18,12 @@ const ProductSchema = Yup.object().shape<ProductRecord>({
 });
 
 interface Props {
-  book?: Book;
+  book: Book;
   formName: string;
 }
 
 function ProductForm(props: Props) {
-  const { addProduct } = useProduct();
+  const { editProduct } = useProduct();
   const [open, setOpen] = useState(false);
   useEffect(() => {
     return setOpen(false);
@@ -46,18 +45,18 @@ function ProductForm(props: Props) {
 
   const formik = useFormik<ProductCreate>({
     initialValues: {
-      price: 0,
-      title: "",
-      description: "",
-      author: "",
-      image: "",
-      category: "",
+      price: props.book.price,
+      title: props.book.title,
+      description: props.book.description,
+      author: props.book.author,
+      image: props.book.image,
+      category: props.book.category,
     },
     validateOnChange: true,
     validationSchema: ProductSchema,
     onSubmit: (value) => {
-      const Id = nanoid();
-      const newBook: Book = {
+      const Id = props.book.id;
+      const updatedBook: Book = {
         id: Id,
         author: value.author,
         title: value.title,
@@ -66,9 +65,9 @@ function ProductForm(props: Props) {
         image: value.image,
         category: value.category,
       };
-      console.log(newBook);
-      addProduct(newBook);
-      window.localStorage.setItem("newbook", JSON.stringify(newBook));
+      console.log(updatedBook);
+      editProduct(updatedBook);
+      window.localStorage.setItem("updatedBook", JSON.stringify(updatedBook));
       handleClick();
     },
   });
@@ -152,7 +151,7 @@ function ProductForm(props: Props) {
         Updatera boken
       </Button>
       <AddedNewBookToast
-        message={`${""} Din bok har sparats 🐸`}
+        message={`${""} Din bok har updaterats 🐸`}
         severity='success'
         open={open}
         setOpen={setOpen}
