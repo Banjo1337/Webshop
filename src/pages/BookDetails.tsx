@@ -89,6 +89,8 @@ function BookDetails() {
         sx={{
           display: "flex",
           justifyContent: "space-around",
+          flexWrap: "wrap",
+          gap: "0.5rem",
         }}
       >
         {products
