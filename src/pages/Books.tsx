@@ -3,7 +3,7 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { SyntheticEvent, useState } from "react";
+import { useState } from "react";
 import BookCard from "../components/BookCard";
 import ShopButton from "../components/ShopButton";
 import { useProduct } from "../contexts/ProductContext";

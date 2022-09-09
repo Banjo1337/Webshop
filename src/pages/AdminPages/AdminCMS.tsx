@@ -14,7 +14,7 @@ import { useProduct } from "../../contexts/ProductContext";
 import { Link, Outlet } from "react-router-dom";
 
 export default function AdminCMS() {
-  const { products, removeProduct, editProduct } = useProduct();
+  const { products, removeProduct } = useProduct();
   const formatter = new Intl.NumberFormat("sv-SE", {
     style: "currency",
     currency: "SEK",
@@ -69,7 +69,7 @@ export default function AdminCMS() {
                 <TableCell align='center'>{formatter.format(product.price)}</TableCell>
                 <TableCell align='left'>{product.description}</TableCell>
                 <TableCell align='right'>
-                  <Link to='updatebookadmin' style={linkStyle}>
+                  <Link to='updatebookadmin' state={{ id: product.id }} style={linkStyle}>
                     <EditIcon sx={{ color: "#F5425D", cursor: "pointer" }} />
                   </Link>
                   <DeleteIcon
