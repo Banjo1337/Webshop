@@ -14,7 +14,7 @@ export default function UpdateBookAdmin() {
   const bookToUpdate = products.find((product) => product.id === state.id) || ({} as Book);
   return (
     <main>
-      <ProductFormUpdate formName='updatebook1' book={bookToUpdate} />
+      <ProductFormUpdate key={state.id} formName='updatebook1' book={bookToUpdate} />
     </main>
   );
 }
