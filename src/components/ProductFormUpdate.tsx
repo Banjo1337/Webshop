@@ -1,9 +1,9 @@
+import { Button } from "@mui/material";
 import { useFormik } from "formik";
 import { CSSProperties, useEffect, useState } from "react";
-import { Book, ProductCreate } from "./Models";
 import * as Yup from "yup";
 import { useProduct } from "../contexts/ProductContext";
-import { Button } from "@mui/material";
+import { Book, ProductCreate } from "./Models";
 import Toast from "./Toast";
 
 type ProductRecord = Record<keyof ProductCreate, Yup.AnySchema>;
@@ -148,7 +148,7 @@ function ProductForm(props: Props) {
         </div>
       </div>
       <Button type='submit' variant='contained' color='success' size='large'>
-        Updatera boken
+        Uppdatera boken
       </Button>
       <Toast
         message={`${""} Din bok har updaterats 🐸`}
