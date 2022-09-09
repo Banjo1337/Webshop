@@ -50,8 +50,8 @@ function Row(product: Book) {
             src={product.image}
           />
         </TableCell>
-        <TableCell align='right'>{product.title}</TableCell>
-        <TableCell align='right'>
+        <TableCell>{product.title}</TableCell>
+        <TableCell>
           <Link to='updatebookadmin' state={{ id: product.id }} style={linkStyle}>
             <EditIcon sx={{ color: "#F5425D", cursor: "pointer" }} />
           </Link>
@@ -65,12 +65,12 @@ function Row(product: Book) {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout='auto' unmountOnExit>
             <Box sx={{ margin: 1 }}>
-              <Table size='small' aria-label='purchases'>
+              <Table size='small'>
                 <TableHead>
                   <TableRow>
                     <TableCell>Id</TableCell>
                     <TableCell>Price</TableCell>
-                    <TableCell align='right'>Description</TableCell>
+                    <TableCell>Author</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -79,11 +79,29 @@ function Row(product: Book) {
                       {product.id}
                     </TableCell>
                     <TableCell>{formatter.format(product.price)}</TableCell>
-                    <TableCell align='right'>{product.description}</TableCell>
+                    <TableCell>{product.author}</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
             </Box>
+          </Collapse>
+        </TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+          <Collapse in={open} timeout='auto' unmountOnExit>
+            <Table size='small'>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Description</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                <TableRow>
+                  <TableCell>{product.description}</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
           </Collapse>
         </TableCell>
       </TableRow>
@@ -103,7 +121,7 @@ export default function AdminCMS() {
             <TableRow>
               <TableCell />
               <TableCell>Cover</TableCell>
-              <TableCell align='right'>Title</TableCell>
+              <TableCell>Title</TableCell>
               <TableCell align='right'>
                 <Link to='addbookadmin' style={linkStyle}>
                   <AddIcon sx={{ color: "#F5425D", cursor: "pointer" }} />
