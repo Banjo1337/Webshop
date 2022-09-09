@@ -2,8 +2,8 @@ import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
 import Button from "@mui/material/Button";
 import { ReactNode, useEffect, useState } from "react";
 import { useCart } from "../contexts/CartContext";
-import AddedToCartToast from "./Toast";
 import { Book } from "./Models";
+import Toast from "./Toast";
 
 interface Props {
   children: ReactNode;
@@ -35,7 +35,7 @@ const ShopButton = ({ children, product }: Props) => {
         {children}
       </Button>
 
-      <AddedToCartToast
+      <Toast
         message={`${product.title} added to cart 🐸`}
         severity='success'
         open={open}

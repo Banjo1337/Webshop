@@ -4,7 +4,7 @@ import { CSSProperties, useEffect, useState } from "react";
 import * as Yup from "yup";
 import { User, UserCreate } from "./Models";
 import DialogPopup from "./DialogPopup";
-import AddedToCartToast from "./Toast";
+import Toast from "./Toast";
 
 type UserRecord = Record<keyof UserCreate, Yup.AnySchema>;
 
@@ -156,7 +156,7 @@ function UserForm(props: Props) {
       <Button type='submit' variant='contained' color='success' size='large'>
         Lägg till
       </Button>
-      <AddedToCartToast
+      <Toast
         message={`${""} Dina uppgifter har sparats 🐸`}
         severity='success'
         open={open}

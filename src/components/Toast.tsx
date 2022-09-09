@@ -7,7 +7,7 @@ interface Props {
   setOpen: (open: boolean) => void;
 }
 
-export default function AddedToCartToast({ message, severity, open, setOpen }: Props) {
+export default function Toast({ message, severity, open, setOpen }: Props) {
   const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
     if (reason === "clickaway") {
       return;

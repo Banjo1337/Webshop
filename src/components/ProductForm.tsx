@@ -4,8 +4,8 @@ import { Book, ProductCreate } from "./Models";
 import * as Yup from "yup";
 import { nanoid } from "nanoid";
 import { useProduct } from "../contexts/ProductContext";
-import AddedNewBookToast from "./AddedNewBookToast";
 import { Button } from "@mui/material";
+import Toast from "./Toast";
 
 type ProductRecord = Record<keyof ProductCreate, Yup.AnySchema>;
 
@@ -152,7 +152,7 @@ function ProductForm(props: Props) {
       <Button type='submit' variant='contained' color='success' size='large'>
         Lägg till boken
       </Button>
-      <AddedNewBookToast
+      <Toast
         message={`${""} Din bok har sparats 🐸`}
         severity='success'
         open={open}
