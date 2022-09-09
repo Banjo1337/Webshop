@@ -10,9 +10,8 @@ interface CustomizedState {
 export default function UpdateBookAdmin() {
   const location = useLocation();
   const state = location.state as CustomizedState;
-  const { id } = state;
   const { products } = useProduct();
-  const bookToUpdate = products.find((product) => product.id === id) || ({} as Book);
+  const bookToUpdate = products.find((product) => product.id === state.id) || ({} as Book);
   return (
     <main>
       <ProductFormUpdate formName='updatebook1' book={bookToUpdate} />
