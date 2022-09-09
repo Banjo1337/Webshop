@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { CSSProperties, useEffect, useState} from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Book, ProductCreate } from "./Models";
 import * as Yup from "yup";
@@ -72,7 +72,6 @@ function ProductForm(props: Props) {
       addProduct(newBook);
       handleClick();
       navigate("/admincms");
-
     },
   });
   return (

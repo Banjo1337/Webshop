@@ -52,11 +52,7 @@ function Row(product: Book) {
         </TableCell>
         <TableCell>{product.title}</TableCell>
         <TableCell>
-          <Link
-            to='updatebookadmin'
-            state={{ id: product.id }}
-            style={linkStyle}
-          >
+          <Link to='updatebookadmin' state={{ id: product.id }} style={linkStyle}>
             <EditIcon sx={{ color: "#F5425D", cursor: "pointer" }} />
           </Link>
           <DeleteIcon
