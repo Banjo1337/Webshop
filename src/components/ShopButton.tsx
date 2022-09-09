@@ -2,7 +2,7 @@ import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
 import Button from "@mui/material/Button";
 import { ReactNode, useEffect, useState } from "react";
 import { useCart } from "../contexts/CartContext";
-import AddedToCartToast from "./AddedToCartToast";
+import AddedToCartToast from "./Toast";
 import { Book } from "./Models";
 
 interface Props {

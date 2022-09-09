@@ -4,7 +4,7 @@ import { CSSProperties, useEffect, useState } from "react";
 import * as Yup from "yup";
 import { User, UserCreate } from "./Models";
 import DialogPopup from "./DialogPopup";
-import AddedToCartToast from "./AddedToCartToast";
+import AddedToCartToast from "./Toast";
 
 type UserRecord = Record<keyof UserCreate, Yup.AnySchema>;
 
