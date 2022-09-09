@@ -1,8 +1,0 @@
-@media (max-width: 600px) {
-  .bookDetailsContainer {
-    flex-direction: column;
-  }
-  .similarTitlesContainer {
-    flex-wrap: wrap;
-  }
-}
