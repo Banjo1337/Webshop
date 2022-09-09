@@ -14,7 +14,7 @@ import { useProduct } from "../../contexts/ProductContext";
 import { Link, Outlet } from "react-router-dom";
 
 export default function AdminCMS() {
-  const { products, removeProduct} = useProduct();
+  const { products, removeProduct } = useProduct();
   const formatter = new Intl.NumberFormat("sv-SE", {
     style: "currency",
     currency: "SEK",
