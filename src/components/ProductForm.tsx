@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
-import { CSSProperties, useEffect, useState } from "react";
+import { CSSProperties, useEffect, useState} from "react";
+import { useNavigate } from "react-router-dom";
 import { Book, ProductCreate } from "./Models";
 import * as Yup from "yup";
 import { nanoid } from "nanoid";
@@ -26,6 +27,7 @@ interface Props {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function ProductForm(props: Props) {
   const { addProduct } = useProduct();
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   useEffect(() => {
     return setOpen(false);
@@ -67,10 +69,10 @@ function ProductForm(props: Props) {
         image: value.image,
         category: value.category,
       };
-      console.log(newBook);
       addProduct(newBook);
-      window.localStorage.setItem("newbook", JSON.stringify(newBook));
       handleClick();
+      navigate("/admincms");
+
     },
   });
   return (
