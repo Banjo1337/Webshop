@@ -23,6 +23,7 @@ interface Props {
   formName: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function ProductForm(props: Props) {
   const { addProduct } = useProduct();
   const [open, setOpen] = useState(false);

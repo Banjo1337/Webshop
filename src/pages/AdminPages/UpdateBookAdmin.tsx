@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 
 export default function UpdateBookAdmin() {
   const location = useLocation();
-  const { id } = location.state;
+  const id  = location.state;
   const { products } = useProduct();
   const bookToUpdate = products.find((product) => product.id === id) || ({} as Book);
   return (
