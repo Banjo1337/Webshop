@@ -23,6 +23,7 @@ interface Props {
   formName: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function ProductForm(props: Props) {
   const { addProduct } = useProduct();
   const [open, setOpen] = useState(false);
@@ -36,12 +37,12 @@ function ProductForm(props: Props) {
   }
 
   const options = [
-    { value: "roman", label: "Roman", id: 1 },
-    { value: "deckare", label: "Deckare", id: 2 },
-    { value: "kokbok", label: "Kokbok", id: 3 },
-    { value: "barnbok", label: "Barnbok", id: 4 },
-    { value: "träning", label: "Träning", id: 5 },
-    { value: "fakta", label: "Fakta", id: 6 },
+    { value: "Roman", label: "Roman", id: 1 },
+    { value: "Deckare", label: "Deckare", id: 2 },
+    { value: "Kokbok", label: "Kokbok", id: 3 },
+    { value: "Barnbok", label: "Barnbok", id: 4 },
+    { value: "Träning", label: "Träning", id: 5 },
+    { value: "Fakta", label: "Fakta", id: 6 },
   ];
 
   const formik = useFormik<ProductCreate>({
