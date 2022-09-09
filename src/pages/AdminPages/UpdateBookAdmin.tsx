@@ -6,14 +6,11 @@ import { useLocation } from "react-router-dom";
 export default function UpdateBookAdmin() {
   const location = useLocation();
   const { id } = location.state;
-  const {products} = useProduct();
+  const { products } = useProduct();
   const bookToUpdate = products.find((product) => product.id === id) || ({} as Book);
   return (
     <main>
-      <ProductFormUpdate
-        formName='updatebook1'
-        book = {bookToUpdate}
-      />
+      <ProductFormUpdate formName='updatebook1' book={bookToUpdate} />
     </main>
   );
 }
