@@ -5,11 +5,13 @@ import ShopButton from "../components/ShopButton";
 import { useProduct } from "../contexts/ProductContext";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import PageNotFound from "./PageNotFound";
-import "../styles/BookDetails.css";
+import useWindowWidth from "../hooks/useWindowWidth";
 
 function BookDetails() {
   const { id } = useParams();
   const { products, getProduct } = useProduct();
+  const windowWidth = useWindowWidth();
+
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const product = getProduct(id!);
 
@@ -25,7 +27,13 @@ function BookDetails() {
 
   return (
     <main>
-      <Box className='bookDetailsContainer' sx={{ display: "flex" }}>
+      <Box
+        className='bookDetailsContainer'
+        sx={{
+          display: "flex",
+          flexDirection: windowWidth < 600 ? "column" : "row",
+        }}
+      >
         <Box
           sx={{ ...boxStyle, justifyContent: "center", alignItems: "center", position: "relative" }}
         >
