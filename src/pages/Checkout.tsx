@@ -24,7 +24,13 @@ function Checkout() {
     currency: "SEK",
   });
   return (
-    <main style={{ display: "flex", flexDirection: "column" }}>
+    <main
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+      }}
+    >
       <h2>Checkout</h2>
       <h3>Här är din beställning</h3>
       <TableContainer component={Paper}>

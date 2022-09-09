@@ -27,7 +27,7 @@ export default function ResponsiveDialog() {
   return (
     <div>
       <Button variant='contained' color='success' size='large' onClick={handleClickOpen}>
-        Bekräfta dina uppgifter
+        Bekräfta
       </Button>
       <Dialog
         fullScreen={fullScreen}

@@ -54,7 +54,8 @@ function UserForm(props: Props) {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form style={formStyle} onSubmit={formik.handleSubmit}>
+      <h4>Fyll i dina uppgifter</h4>
       <div style={userInfoStyle}>
         <div style={flexColumn}>
           <input
@@ -153,31 +154,51 @@ function UserForm(props: Props) {
           ) : null}
         </div>
       </div>
-      <Button type='submit' variant='contained' color='success' size='large'>
-        Lägg till
-      </Button>
-      <Toast
-        message={`${""} Dina uppgifter har sparats 🐸`}
-        severity='success'
-        open={open}
-        setOpen={setOpen}
-      />
-      <DialogPopup />
+      <div style={flexRow}>
+        <Button
+          style={{ marginLeft: "0.4rem", marginRight: "3.9rem", marginBottom: "0.5rem" }}
+          type='submit'
+          variant='contained'
+          color='success'
+          size='large'
+        >
+          Lägg till
+        </Button>
+        <Toast
+          message={`${""} Dina uppgifter har sparats 🐸`}
+          severity='success'
+          open={open}
+          setOpen={setOpen}
+        />
+        <DialogPopup />
+      </div>
     </form>
   );
 }
 
 //TODO: Move to separate file??
+const formStyle: CSSProperties = {
+  alignSelf: "center",
+  textAlign: "center",
+  boxShadow: "1px 2px 9px #F4AAB9",
+};
+
 const userInfoStyle: CSSProperties = {
   display: "flex",
   flexDirection: "row",
-  width: "10rem",
   padding: "0.4rem",
 };
 
 const flexColumn: CSSProperties = {
   display: "flex",
   flexDirection: "column",
+  padding: "0.1rem",
+};
+
+const flexRow: CSSProperties = {
+  display: "flex",
+  flexDirection: "row",
+  padding: "0.1rem",
 };
 
 const errorMessageStyle: CSSProperties = {
