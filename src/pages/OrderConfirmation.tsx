@@ -1,9 +1,8 @@
 import { User } from "../components/Models";
 import { CSSProperties } from "react";
 import { Box, Typography } from "@mui/material";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-
 
 function OrderConfirmation() {
   const user: User = JSON.parse(window.localStorage.getItem("user") || "{}");
@@ -31,7 +30,9 @@ function OrderConfirmation() {
           }}
         >
           <ArrowBackIcon sx={{ fontSize: "1.5rem" }} />
-          <Typography sx={{ fontWeight: "500", fontSize: "1.5rem" }}>Tillbaka till våra böker...</Typography>
+          <Typography sx={{ fontWeight: "500", fontSize: "1.5rem" }}>
+            Tillbaka till våra böker...
+          </Typography>
         </Link>
       </Box>
       <div style={confirmationStyle}>

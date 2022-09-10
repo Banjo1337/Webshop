@@ -9,7 +9,6 @@ interface ContextValue {
   removeAllQuantitiesFromCart: (product: Book) => void;
 }
 
-
 const CartContext = createContext<ContextValue>({} as ContextValue);
 
 interface Props {
@@ -18,7 +17,7 @@ interface Props {
 
 function CartProvider({ children }: Props) {
   const [cart, setCart] = useState<ProductInCart[]>([]);
-  
+
   const clearCart = () => {
     setCart([]);
   };
@@ -49,7 +48,9 @@ function CartProvider({ children }: Props) {
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, clearCart, removeFromCart, removeAllQuantitiesFromCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, clearCart, removeFromCart, removeAllQuantitiesFromCart }}
+    >
       {children}
     </CartContext.Provider>
   );
