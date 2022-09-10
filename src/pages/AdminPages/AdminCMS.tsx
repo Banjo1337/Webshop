@@ -1,5 +1,4 @@
 import AddIcon from "@mui/icons-material/Add";
-import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -18,6 +17,7 @@ import * as React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { Book } from "../../components/Models";
 import { useProduct } from "../../contexts/ProductContext";
+import DialogPopupDeleteBook from "../../components/DialogPopupDeleteBook";
 
 const linkStyle = {
   display: "flex",
@@ -27,7 +27,6 @@ const linkStyle = {
 
 function Row(product: Book) {
   const [open, setOpen] = React.useState(false);
-  const { removeProduct } = useProduct();
   const formatter = new Intl.NumberFormat("sv-SE", {
     style: "currency",
     currency: "SEK",
@@ -55,10 +54,7 @@ function Row(product: Book) {
           <Link to='updatebookadmin' state={{ id: product.id }} style={linkStyle}>
             <EditIcon sx={{ color: "#F5425D", cursor: "pointer" }} />
           </Link>
-          <DeleteIcon
-            sx={{ color: "#F5425D", cursor: "pointer" }}
-            onClick={() => removeProduct(product)}
-          />
+          <DialogPopupDeleteBook id = {product.id} />
         </TableCell>
       </TableRow>
       <TableRow>
