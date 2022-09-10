@@ -9,12 +9,14 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import { User } from "./Models";
 import { Link } from "react-router-dom";
+import { useCart } from "../contexts/CartContext";
 
 export default function ResponsiveDialog() {
   const user: User = JSON.parse(window.localStorage.getItem("user") || "{}");
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const { clearCart } = useCart();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -22,6 +24,7 @@ export default function ResponsiveDialog() {
 
   const handleClose = () => {
     setOpen(false);
+    clearCart();
   };
 
   return (

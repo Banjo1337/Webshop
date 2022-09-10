@@ -18,8 +18,9 @@ interface Props {
 
 function CartProvider({ children }: Props) {
   const [cart, setCart] = useState<ProductInCart[]>([]);
+  
   const clearCart = () => {
-    cart.length=0;
+    setCart([]);
   };
 
   const addToCart = (product: Book) => {

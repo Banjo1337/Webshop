@@ -5,7 +5,6 @@ import * as Yup from "yup";
 import { User, UserCreate } from "./Models";
 import DialogPopup from "./DialogPopup";
 import Toast from "./Toast";
-import { useCart } from "../contexts/CartContext";
 
 type UserRecord = Record<keyof UserCreate, Yup.AnySchema>;
 
@@ -27,7 +26,6 @@ interface Props {
 }
 
 function UserForm(props: Props) {
-  const { clearCart } = useCart();
   const [open, setOpen] = useState(false);
   useEffect(() => {
     return setOpen(false);
@@ -52,7 +50,6 @@ function UserForm(props: Props) {
     onSubmit: (values) => {
       window.localStorage.setItem("user", JSON.stringify(values));
       handleClick();
-      clearCart();
     },
   });
 
