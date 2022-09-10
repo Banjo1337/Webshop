@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import { useFormik } from "formik";
 import { CSSProperties, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { useProduct } from "../contexts/ProductContext";
 import { Book, ProductCreate } from "./Models";
@@ -24,6 +25,7 @@ interface Props {
 
 function ProductForm(props: Props) {
   const { editProduct } = useProduct();
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   useEffect(() => {
     return setOpen(false);
@@ -65,10 +67,9 @@ function ProductForm(props: Props) {
         image: value.image,
         category: value.category,
       };
-      console.log(updatedBook);
       editProduct(updatedBook);
-      window.localStorage.setItem("updatedBook", JSON.stringify(updatedBook));
       handleClick();
+      navigate("/admincms");
     },
   });
   return (
