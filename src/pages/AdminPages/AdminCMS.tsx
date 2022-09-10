@@ -54,7 +54,7 @@ function Row(product: Book) {
           <Link to='updatebookadmin' state={{ id: product.id }} style={linkStyle}>
             <EditIcon sx={{ color: "#F5425D", cursor: "pointer" }} />
           </Link>
-          <DialogPopupDeleteBook id = {product.id} />
+          <DialogPopupDeleteBook id={product.id} />
         </TableCell>
       </TableRow>
       <TableRow>
