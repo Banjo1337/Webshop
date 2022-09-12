@@ -29,7 +29,11 @@ export default function ResponsiveDialog(props: Props) {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleDelete = () => {
     removeProduct(bookToDelete);
+    handleClose();
   };
 
   return (
@@ -52,7 +56,7 @@ export default function ResponsiveDialog(props: Props) {
         </DialogContent>
         <DialogActions>
           <Link to='/admincms'>
-            <Button autoFocus onClick={handleClose}>
+            <Button autoFocus onClick={handleDelete}>
               Ja
             </Button>
           </Link>
