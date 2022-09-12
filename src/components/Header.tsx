@@ -73,11 +73,23 @@ export default function ResponsiveAppBar() {
               sx={{
                 display: "flex",
                 alignItems: "center",
-                width: "70px",
+                width: "150px",
+                justifyContent: "right",
+              }}
+            >
+              <Box>
+                <div>{totalPrice > 0 ? "Total pris: " : null}</div>
+                <div>{totalPrice > 0 ? formatter.format(totalPrice) : null}</div>
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                width: "100px",
                 justifyContent: "space-between",
               }}
             >
-              <div>{formatter.format(totalPrice)}</div>
               <Link to='shoppingcart' style={linkStyle}>
                 <Badge
                   color='secondary'
