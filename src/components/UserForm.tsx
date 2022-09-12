@@ -178,6 +178,7 @@ function UserForm(props: Props) {
 
 //TODO: Move to separate file??
 const formStyle: CSSProperties = {
+  marginTop: "1rem",
   alignSelf: "center",
   textAlign: "center",
   boxShadow: "1px 2px 9px #F4AAB9",
