@@ -15,6 +15,18 @@ import ShoppingCartItemDesktop from "../components/ShoppingCartItemDesktop";
 export default function ShoppingCart() {
   const { cart } = useCart();
   const windowWidth = useWindowWidth();
+  const totalPrice = cart.reduce(
+    (totalPrice, product) => (totalPrice = totalPrice + product.price * product.number),
+    0,
+  );
+  const totalNumberOfItem = cart.reduce(
+    (totalNumberOfItem, product) => (totalNumberOfItem = totalNumberOfItem + product.number),
+    0,
+  );
+  const formatter = new Intl.NumberFormat("sv-SE", {
+    style: "currency",
+    currency: "SEK",
+  });
 
   return (
     <main style={{ display: "flex", flexDirection: "column" }}>
@@ -36,6 +48,28 @@ export default function ShoppingCart() {
               {cart.map((product) => (
                 <ShoppingCartItemDesktop key={product.id} product={product} />
               ))}
+            </TableBody>
+          </Table>
+          <Table sx={{ minWidth: 650 }} aria-label='simple table'>
+            <TableHead>
+              <TableRow>
+                <TableCell></TableCell>
+                <TableCell></TableCell>
+                <TableCell></TableCell>
+                <TableCell></TableCell>
+                <TableCell align='right'>Total Price</TableCell>
+                <TableCell align='right'>Number of Item</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell></TableCell>
+                <TableCell></TableCell>
+                <TableCell></TableCell>
+                <TableCell></TableCell>
+                <TableCell align='right'>{formatter.format(totalPrice)}</TableCell>
+                <TableCell align='right'>{totalNumberOfItem}</TableCell>
+              </TableRow>
             </TableBody>
           </Table>
         </TableContainer>
