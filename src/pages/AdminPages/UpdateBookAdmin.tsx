@@ -8,6 +8,7 @@ interface CustomizedState {
 }
 
 export default function UpdateBookAdmin() {
+  window.scrollTo(0, 0);
   const location = useLocation();
   const state = location.state as CustomizedState;
   const { products } = useProduct();
