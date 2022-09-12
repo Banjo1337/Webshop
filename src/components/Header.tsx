@@ -11,6 +11,14 @@ import { useCart } from "../contexts/CartContext";
 
 export default function ResponsiveAppBar() {
   const { cart } = useCart();
+  const totalPrice = cart.reduce(
+    (totalPrice, product) => (totalPrice = totalPrice + product.price * product.number),
+    0,
+  );
+  const formatter = new Intl.NumberFormat("sv-SE", {
+    style: "currency",
+    currency: "SEK",
+  });
   const linkStyle = {
     display: "flex",
     textDecoration: "none",
@@ -65,7 +73,20 @@ export default function ResponsiveAppBar() {
               sx={{
                 display: "flex",
                 alignItems: "center",
-                width: "70px",
+                width: "150px",
+                justifyContent: "right",
+              }}
+            >
+              <Box>
+                <div>{totalPrice > 0 ? "Total pris: " : null}</div>
+                <div>{totalPrice > 0 ? formatter.format(totalPrice) : null}</div>
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                width: "100px",
                 justifyContent: "space-between",
               }}
             >
