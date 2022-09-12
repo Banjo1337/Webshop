@@ -24,7 +24,11 @@ export default function ResponsiveDialog() {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleClear = () => {
     clearCart();
+    handleClose();
   };
 
   return (
@@ -56,7 +60,7 @@ export default function ResponsiveDialog() {
         </DialogContent>
         <DialogActions>
           <Link to='/orderconfirmation'>
-            <Button autoFocus onClick={handleClose}>
+            <Button autoFocus onClick={handleClear}>
               Ja
             </Button>
           </Link>
