@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import lostMoth from "../assets/lost_moth.png";
+import BackButton from "../components/BackButton";
 
 export default function PageNotFound() {
   return (
@@ -22,6 +23,7 @@ export default function PageNotFound() {
           }}
           src={lostMoth}
         />
+        <BackButton />
       </Box>
     </main>
   );

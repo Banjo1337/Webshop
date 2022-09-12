@@ -6,6 +6,7 @@ import { useProduct } from "../contexts/ProductContext";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import PageNotFound from "./PageNotFound";
 import useWindowWidth from "../hooks/useWindowWidth";
+import BackButton from "../components/BackButton";
 
 function BookDetails() {
   const { id } = useParams();
@@ -37,9 +38,7 @@ function BookDetails() {
         <Box
           sx={{ ...boxStyle, justifyContent: "center", alignItems: "center", position: "relative" }}
         >
-          <Link
-            to='/'
-            style={{
+          <BackButton sx={{
               display: "flex",
               alignItems: "center",
               textDecoration: "none",
@@ -47,11 +46,9 @@ function BookDetails() {
               position: "absolute",
               top: "2rem",
               left: "2rem",
-            }}
-          >
-            <ArrowBackIcon sx={{ fontSize: "1.5rem" }} />
-            <Typography sx={{ fontWeight: "500", fontSize: "1.5rem" }}>Tillbaka</Typography>
-          </Link>
+              }} 
+          />
+
           <Box component='img' src={product.image} />
         </Box>
         <Box sx={{ ...boxStyle, flex: "2" }}>
