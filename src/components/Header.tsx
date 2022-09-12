@@ -11,6 +11,14 @@ import { useCart } from "../contexts/CartContext";
 
 export default function ResponsiveAppBar() {
   const { cart } = useCart();
+  const totalPrice = cart.reduce(
+    (totalPrice, product) => (totalPrice = totalPrice + product.price * product.number),
+    0,
+  );
+  const formatter = new Intl.NumberFormat("sv-SE", {
+    style: "currency",
+    currency: "SEK",
+  });
   const linkStyle = {
     display: "flex",
     textDecoration: "none",
@@ -69,6 +77,7 @@ export default function ResponsiveAppBar() {
                 justifyContent: "space-between",
               }}
             >
+              <div>{formatter.format(totalPrice)}</div>
               <Link to='shoppingcart' style={linkStyle}>
                 <Badge
                   color='secondary'
