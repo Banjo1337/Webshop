@@ -15,10 +15,10 @@ function Checkout() {
     (totalPrice, product) => (totalPrice = totalPrice + product.price * product.number),
     0,
   );
-  const totalNumberOfItem = cart.reduce(
-    (totalNumberOfItem, product) => (totalNumberOfItem = totalNumberOfItem + product.number),
-    0,
-  );
+  // const totalNumberOfItem = cart.reduce(
+  //   (totalNumberOfItem, product) => (totalNumberOfItem = totalNumberOfItem + product.number),
+  //   0,
+  // );
   const formatter = new Intl.NumberFormat("sv-SE", {
     style: "currency",
     currency: "SEK",
@@ -31,18 +31,14 @@ function Checkout() {
         fontFamily: "Roboto, Helvetica, Arial, sans-serif",
       }}
     >
-      <h2>Checkout</h2>
-      <h3>Här är din beställning</h3>
+      <h3 style={{ alignSelf: "center" }}>Här är din beställning</h3>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label='simple table'>
+        <Table sx={{ minWidth: 360 }} aria-label='simple table'>
           <TableHead>
             <TableRow>
               <TableCell align='right'></TableCell>
-              <TableCell>Title</TableCell>
-              <TableCell align='right'>Author</TableCell>
-              <TableCell align='right'>Genre</TableCell>
-              <TableCell align='right'>Price</TableCell>
-              <TableCell align='right'>Quantity</TableCell>
+              <TableCell>Info</TableCell>
+              <TableCell>Pris á</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -58,37 +54,24 @@ function Checkout() {
                   />
                 </TableCell>
                 <TableCell component='th' scope='row'>
-                  {product.title}
+                  <b>{product.title}</b> ({product.category}) <br />
+                  {product.author}
+                  <br />
+                  Antal: {product.number}
                 </TableCell>
-                <TableCell align='right'>{product.author}</TableCell>
-                <TableCell align='right'>{product.category}</TableCell>
-                <TableCell align='right'>{formatter.format(product.price)}</TableCell>
-                <TableCell align='right'>{product.number}</TableCell>
+                <TableCell align='left'>{formatter.format(product.price)}</TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
-        <Table sx={{ minWidth: 650 }} aria-label='simple table'>
+        <Table sx={{ minWidth: 360 }} aria-label='simple table'>
           <TableHead>
             <TableRow>
               <TableCell></TableCell>
+              <TableCell align='right'>Totalt: {formatter.format(totalPrice)}</TableCell>
               <TableCell></TableCell>
-              <TableCell></TableCell>
-              <TableCell></TableCell>
-              <TableCell align='right'>Total Price</TableCell>
-              <TableCell align='right'>Number of Item</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell></TableCell>
-              <TableCell></TableCell>
-              <TableCell></TableCell>
-              <TableCell></TableCell>
-              <TableCell align='right'>{formatter.format(totalPrice)}</TableCell>
-              <TableCell align='right'>{totalNumberOfItem}</TableCell>
-            </TableRow>
-          </TableBody>
         </Table>
       </TableContainer>
       <UserForm />
