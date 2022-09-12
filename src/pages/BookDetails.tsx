@@ -38,7 +38,8 @@ function BookDetails() {
         <Box
           sx={{ ...boxStyle, justifyContent: "center", alignItems: "center", position: "relative" }}
         >
-          <BackButton sx={{
+          <BackButton
+            sx={{
               display: "flex",
               alignItems: "center",
               textDecoration: "none",
@@ -46,7 +47,7 @@ function BookDetails() {
               position: "absolute",
               top: "2rem",
               left: "2rem",
-              }} 
+            }}
           />
 
           <Box component='img' src={product.image} />
