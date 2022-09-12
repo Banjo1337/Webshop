@@ -3,6 +3,7 @@ import { Book, ProductInCart } from "../components/Models";
 
 interface ContextValue {
   cart: ProductInCart[];
+  clearCart: () => void;
   addToCart: (product: Book) => void;
   removeFromCart: (product: Book) => void;
   removeAllQuantitiesFromCart: (product: Book) => void;
@@ -16,6 +17,10 @@ interface Props {
 
 function CartProvider({ children }: Props) {
   const [cart, setCart] = useState<ProductInCart[]>([]);
+
+  const clearCart = () => {
+    setCart([]);
+  };
 
   const addToCart = (product: Book) => {
     if (cart.find((p) => p.id === product.id)) {
@@ -43,7 +48,9 @@ function CartProvider({ children }: Props) {
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, removeAllQuantitiesFromCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, clearCart, removeFromCart, removeAllQuantitiesFromCart }}
+    >
       {children}
     </CartContext.Provider>
   );
