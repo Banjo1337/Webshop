@@ -75,10 +75,12 @@ export default function ResponsiveAppBar() {
                 alignItems: "center",
                 width: "150px",
                 justifyContent: "right",
+                flex: "1",
+                marginRight: "1rem",
               }}
             >
               <Box>
-                <div>{totalPrice > 0 ? "Total pris: " : null}</div>
+                <div>{totalPrice > 0 ? "Totalt: " : null}</div>
                 <div>{totalPrice > 0 ? formatter.format(totalPrice) : null}</div>
               </Box>
             </Box>
