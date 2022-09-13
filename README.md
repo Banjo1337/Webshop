@@ -1,17 +1,18 @@
-/// Bokmal.se
+Bokmal.se
 
-/// Våran e-handelssida som säljer böcker i de vanligaste kategorierna, än så länge finns inget specifikt format, kanske kommer i framtiden.
+Våran e-handelssida som säljer böcker i de vanligaste kategorierna, än så länge finns inget specifikt format, kanske kommer i framtiden.
 
-/// Man kör projektet genom att:
-    i dev-läget: npm run dev
-    i prod: npm run build
+Man kör projektet genom:
+   * dev-läget: npm run dev
+   * prod: npm run build
 
-/// Material-UI: https://mui.com/material-ui/getting-started/overview/
-    Formik: https://formik.org/docs/overview
-    Yup: https://github.com/jquense/yup
-    NanoID: https://github.com/ai/nanoid
-    Prettier: https://prettier.io/docs/en/index.html
-    ESLint: https://eslint.org/docs/latest/
+// Länkar till docs
+* Material-UI: https://mui.com/material-ui/getting-started/overview/
+* Formik: https://formik.org/docs/overview
+* Yup: https://github.com/jquense/yup
+* NanoID: https://github.com/ai/nanoid
+* Prettier: https://prettier.io/docs/en/index.html
+* ESLint: https://eslint.org/docs/latest/
 
 Krav för godkänt:
 
