@@ -1,10 +1,17 @@
-/// TITEL
+/// Bokmal.se
 
-/// BESKRIVNING
+/// Våran e-handelssida som säljer böcker i de vanligaste kategorierna, än så länge finns inget specifikt format, kanske kommer i framtiden.
 
-/// HUR PROJEKTET KÖRS
+/// Man kör projektet genom att:
+    i dev-läget: npm run dev
+    i prod: npm run build
 
-/// LÄNKAR TILL DOKUMENTATIONER FÖR DESIGNSYSTEMEN
+/// Material-UI: https://mui.com/material-ui/getting-started/overview/
+    Formik: https://formik.org/docs/overview
+    Yup: https://github.com/jquense/yup
+    NanoID: https://github.com/ai/nanoid
+    Prettier: https://prettier.io/docs/en/index.html
+    ESLint: https://eslint.org/docs/latest/
 
 Krav för godkänt:
 
@@ -15,12 +22,12 @@ Krav för godkänt:
 5. React Router används för navigering [X]
 6. Formulären vid utcheckningen ska gå att automatiskt fyllas i [X]
 7. Samtliga fält ska ha valideringsregler [X]
-8. Hemsidan ska vara fullt responsiv (ner till 360px) []
+8. Hemsidan ska vara fullt responsiv (ner till 360px) [X]
 9. Mockade produkter ska finnas i en egen fil och vara typade med ett TS interface [X]
 10. Projektet skall läggas upp på Netlify eller liknande tjänst. [X]
 
 Krav för väl godkänt:
 
-1. Alla punkter för godkänt är uppfyllda []
-2. Det finns en admin-sida där man kan ändra, lägga till eller ta bort produkter på sidan []
-3. Samtliga produkter skall vara sparade i localstorage (om localstorage är tom då sidan läses in behöver samtliga fördefinierade produkter sparas där) []
+1. Alla punkter för godkänt är uppfyllda [X]
+2. Det finns en admin-sida där man kan ändra, lägga till eller ta bort produkter på sidan [X]
+3. Samtliga produkter skall vara sparade i localstorage (om localstorage är tom då sidan läses in behöver samtliga fördefinierade produkter sparas där) [X]
