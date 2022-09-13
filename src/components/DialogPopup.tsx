@@ -18,8 +18,13 @@ export default function ResponsiveDialog() {
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const { clearCart } = useCart();
 
+  function isValidUser(obj: User) {
+    return Object.keys(obj).length > 0;
+  }
+
   const handleClickOpen = () => {
-    setOpen(true);
+    if (isValidUser(user)) setOpen(true);
+    else setOpen(false);
   };
 
   const handleClose = () => {
