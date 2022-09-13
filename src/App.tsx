@@ -21,9 +21,7 @@ asd
           }
         />
         <Route path='orderconfirmation' element={<OrderConfirmation />} />
-        <Route path='*' element={<PageNotFound />} />
-      </Route>
-    </Routes>
+      @@@@@
   );
 }
 
