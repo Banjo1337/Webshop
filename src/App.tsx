@@ -15,8 +15,7 @@ function App() {
   const location = useLocation();
   return (
     <Routes>
-      <Route path='/' element={<Header />}>
-        <Route index element={<Books />} />
+      <Ront={<Books />} />
 asd
           }
         />
