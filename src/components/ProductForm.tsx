@@ -102,13 +102,14 @@ function ProductForm(props: Props) {
           ) : null}
         </div>
         <div>
-          <input
-            type='textarea'
+          <textarea
             placeholder='Description'
             name={"description"}
             value={formik.values.description}
             onChange={formik.handleChange}
-          />
+            rows={12}
+            cols={20}
+          ></textarea>
           {formik.touched.description && formik.errors.description ? (
             <div style={errorMessageStyle}>{formik.errors.description}</div>
           ) : null}
