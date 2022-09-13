@@ -79,7 +79,12 @@ export default function ResponsiveAppBar() {
                 marginRight: "1rem",
               }}
             >
-              <Box>
+              <Box
+                sx={{
+                  fontSize: "0.8rem",
+                  marginLeft: "1.5rem",
+                }}
+              >
                 <div>{totalPrice > 0 ? "Totalt: " : null}</div>
                 <div>{totalPrice > 0 ? formatter.format(totalPrice) : null}</div>
               </Box>
