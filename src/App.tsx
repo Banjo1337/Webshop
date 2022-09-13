@@ -17,32 +17,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Header />}>
         <Route index element={<Books />} />
-        <Route path='book/:id' element={<BookDetails />} />
-        <Route path='shoppingcart' element={<ShoppingCart />} />
-        <Route path='admincms' element={<AdminCMS />}>
-          <Route
-            path='addbookadmin'
-            element={
-              <ErrorBoundary key={location.pathname}>
-                <AddBookAdmin />
-              </ErrorBoundary>
-            }
-          />
-          <Route
-            path='updatebookadmin'
-            element={
-              <ErrorBoundary key={location.pathname}>
-                <UpdateBookAdmin />
-              </ErrorBoundary>
-            }
-          />
-        </Route>
-        <Route
-          path='checkout'
-          element={
-            <ErrorBoundary key={location.pathname}>
-              <Checkout />
-            </ErrorBoundary>
+asd
           }
         />
         <Route path='orderconfirmation' element={<OrderConfirmation />} />
