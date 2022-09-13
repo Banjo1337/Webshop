@@ -6,7 +6,11 @@ import React from "react";
 import { useCart } from "../contexts/CartContext";
 import { ProductInCart } from "./Models";
 
-function ShoppingCartRow(product: ProductInCart) {
+interface Props {
+  product: ProductInCart;
+}
+
+function ShoppingCartRow({ product }: Props) {
   const { addToCart, removeFromCart, removeAllQuantitiesFromCart } = useCart();
   const formatter = new Intl.NumberFormat("sv-SE", {
     style: "currency",

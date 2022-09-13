@@ -30,17 +30,7 @@ export default function ShoppingCart() {
           </TableHead>
           <TableBody>
             {cart.map((product) => (
-              <ShoppingCartRow
-                key={product.id}
-                id={product.id}
-                number={product.number}
-                price={product.price}
-                title={product.title}
-                description={product.description}
-                author={product.author}
-                image={product.image}
-                category={product.category}
-              />
+              <ShoppingCartRow key={product.id} product={product} />
             ))}
           </TableBody>
         </Table>
