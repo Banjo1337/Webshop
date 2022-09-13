@@ -16,6 +16,7 @@ function ShoppingCartRow({ product }: Props) {
     style: "currency",
     currency: "SEK",
   });
+
   return (
     <React.Fragment>
       <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
