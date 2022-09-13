@@ -20,7 +20,7 @@ function App() {
 asd
           }
         />
-        <Route path='orderconfirmation' element={<OrderConfirmation />} />
+        path='orderconfirmation' element={<OrderConfirmation />} />
       @@@@@
   );
 }
