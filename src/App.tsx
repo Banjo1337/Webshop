@@ -8,9 +8,9 @@ import PageNotFound from "./pages/PageNotFound";
 import ShoppingCart from "./pages/ShoppingCart";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import ErrorBoundary from "./components/ErrorBoundary";
-const AdminCMS = lazy(() => import("./pages/AdminCMS"))
-const AddBookAdmin = lazy(() => import("./components/Admin_Components/AddBookAdmin"))
-const UpdateBookAdmin = lazy(() => import("./components/Admin_Components/UpdateBookAdmin"))
+const AdminCMS = lazy(() => import("./pages/AdminCMS"));
+const AddBookAdmin = lazy(() => import("./components/Admin_Components/AddBookAdmin"));
+const UpdateBookAdmin = lazy(() => import("./components/Admin_Components/UpdateBookAdmin"));
 
 function App() {
   const location = useLocation();
@@ -20,11 +20,14 @@ function App() {
         <Route index element={<Books />} />
         <Route path='book/:id' element={<BookDetails />} />
         <Route path='shoppingcart' element={<ShoppingCart />} />
-        <Route path='admincms' element={
-          <Suspense>
-            <AdminCMS />
-          </Suspense>
-        }>
+        <Route
+          path='admincms'
+          element={
+            <Suspense>
+              <AdminCMS />
+            </Suspense>
+          }
+        >
           <Route
             path='addbookadmin'
             element={
