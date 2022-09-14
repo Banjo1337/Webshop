@@ -19,13 +19,7 @@ const ProductSchema = Yup.object().shape<ProductRecord>({
   category: Yup.string().required("*Obligatoriskt"),
 });
 
-interface Props {
-  book?: Book;
-  formName: string;
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function ProductForm(props: Props) {
+function ProductForm() {
   const { addProduct } = useProduct();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
