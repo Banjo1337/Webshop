@@ -1,5 +1,6 @@
 import ProductForm from "../productForm/ProductForm";
 import { CSSProperties } from "react";
+import React from "react";
 
 const divStyle: CSSProperties = {
   maxWidth: "1500px",

@@ -9,7 +9,7 @@ export default function EmptyShoppingCart() {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        marginTop: "5vh",
+        marginTop: "8vh",
       }}
     >
       <Typography variant='h2'>Kundvagnen är tom</Typography>

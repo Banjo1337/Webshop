@@ -7,6 +7,7 @@ import { nanoid } from "nanoid";
 import { useProduct } from "../../contexts/ProductContext";
 import { Button } from "@mui/material";
 import Toast from "../Toast";
+import React from "react";
 
 type ProductRecord = Record<keyof ProductCreate, Yup.AnySchema>;
 
