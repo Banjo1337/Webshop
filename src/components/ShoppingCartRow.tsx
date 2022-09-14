@@ -1,7 +1,7 @@
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import DeleteIcon from "@mui/icons-material/Delete";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
-import { Box, Button, TableCell, TableRow } from "@mui/material";
+import { Box, TableCell, TableRow } from "@mui/material";
 import React from "react";
 import { useCart } from "../contexts/CartContext";
 import { ProductInCart } from "./Models";
@@ -34,25 +34,19 @@ function ShoppingCartRow({ product }: Props) {
           <Box>({product.category})</Box>
           <Box>{product.author}</Box>
         </TableCell>
-        <TableCell align='center' sx={{ borderBottom: 0 }}>
-          <Button
+        <TableCell align='left' sx={{ borderBottom: 0 }}>
+          <AddCircleIcon
             onClick={() => addToCart(product)}
-            sx={{ padding: ".2rem 0 0 0", minWidth: "38px" }}
-          >
-            <AddCircleIcon />
-          </Button>
-          <Button
+            sx={{ padding: ".2rem", color: "#4477FF", cursor: "pointer" }}
+          />
+          <RemoveCircleIcon
+            sx={{ padding: ".2rem", color: "#44CC77", cursor: "pointer" }}
             onClick={() => product.number > 1 && removeFromCart(product)}
-            sx={{ padding: ".2rem 0 0 0" }}
-          >
-            <RemoveCircleIcon />
-          </Button>
-          <Box>
-            <DeleteIcon
-              sx={{ color: "#F5425D", cursor: "pointer" }}
-              onClick={() => removeAllQuantitiesFromCart(product)}
-            />
-          </Box>
+          />
+          <DeleteIcon
+            sx={{ padding: ".2rem", color: "#F5425D", cursor: "pointer" }}
+            onClick={() => removeAllQuantitiesFromCart(product)}
+          />
         </TableCell>
       </TableRow>
       <TableRow>
@@ -60,7 +54,7 @@ function ShoppingCartRow({ product }: Props) {
           {formatter.format(product.price)}/st
         </TableCell>
         <TableCell align='center' sx={{ paddingRight: "0" }}>
-          <Box>Antal: {product.number}</Box>
+          <Box>Antal: {product.number} st</Box>
         </TableCell>
         <TableCell sx={{ paddingRight: "0" }}>{product.price * product.number} kr</TableCell>
       </TableRow>

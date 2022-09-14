@@ -35,12 +35,16 @@ export default function ShoppingCart() {
           </TableBody>
         </Table>
       </TableContainer>
-      <Box sx={{ alignSelf: "center", paddingTop: "1rem" }}>Totalt: {totalPrice} kr</Box>
-      <Link to='/checkout' style={{ alignSelf: "flex-end", textDecoration: "none" }}>
-        <Button variant='contained' color='success' size='large'>
-          Check out
-        </Button>
-      </Link>
+      <Box
+        sx={{ padding: ".5rem .5rem 0 .5rem", display: "flex", justifyContent: "space-between" }}
+      >
+        <Box sx={{ alignSelf: "center" }}>Totalt: {totalPrice} kr</Box>
+        <Link to='/checkout' style={{ alignSelf: "flex-end", textDecoration: "none" }}>
+          <Button variant='contained' color='success' size='large'>
+            Check out
+          </Button>
+        </Link>
+      </Box>
     </main>
   );
 }
