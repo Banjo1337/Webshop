@@ -12,19 +12,18 @@ function BookDetails() {
   const { products, getProduct } = useProduct();
   const windowWidth = useWindowWidth();
 
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const product = getProduct(id!);
+
+  if (Object.keys(product).length === 0) {
+    return <PageNotFound />;
+  }
 
   const boxStyle: CSSProperties = {
     flex: "1",
     minHeight: "500px",
     display: "flex",
   };
-
-  if (Object.keys(product).length === 0) {
-    return <PageNotFound />;
-  }
-
+  
   return (
     <main>
       <Box
