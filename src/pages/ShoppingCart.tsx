@@ -7,6 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Link } from "react-router-dom";
+import EmptyShoppingCart from "../components/EmptyShoppingCart";
 import ShoppingCartRow from "../components/ShoppingCartRow";
 import { useCart } from "../contexts/CartContext";
 
@@ -16,6 +17,10 @@ export default function ShoppingCart() {
     (totalPrice, product) => (totalPrice = totalPrice + product.price * product.number),
     0,
   );
+
+  if (cart.length === 0) {
+    return <EmptyShoppingCart />;
+  }
 
   return (
     <main style={{ display: "flex", flexDirection: "column" }}>

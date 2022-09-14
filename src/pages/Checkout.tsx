@@ -8,6 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Box } from "@mui/material";
 import Paper from "@mui/material/Paper";
+import EmptyShoppingCart from "../components/EmptyShoppingCart";
 
 function Checkout() {
   const { cart } = useCart();
@@ -21,6 +22,10 @@ function Checkout() {
     style: "currency",
     currency: "SEK",
   });
+
+  if (cart.length === 0) {
+    return <EmptyShoppingCart />;
+  }
 
   return (
     <main
