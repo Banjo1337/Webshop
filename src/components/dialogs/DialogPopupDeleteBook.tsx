@@ -3,7 +3,6 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
@@ -11,6 +10,7 @@ import { Book } from "../Models";
 import { Link } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useProduct } from "../../contexts/ProductContext";
+import Typography from "@mui/material/Typography";
 
 interface Props {
   id: string;
@@ -47,12 +47,14 @@ export default function ResponsiveDialog(props: Props) {
       >
         <DialogTitle id='responsive-dialog-title'>{"Vill du verkligen ta bort boken?"}</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            <h4>Title: </h4>
-            <p>{bookToDelete.title}</p>
-            <h4>Author: </h4>
-            {bookToDelete.author} <br />
-          </DialogContentText>
+          <Typography variant='h6'>Title:</Typography>
+          <br />
+          <Typography variant='subtitle1'>{bookToDelete.title}</Typography>
+          <br />
+          <Typography variant='h6'>Author:</Typography>
+          <br />
+          <Typography variant='subtitle1'>{bookToDelete.author}</Typography>
+          <br />
         </DialogContent>
         <DialogActions>
           <Link to='/admincms'>
