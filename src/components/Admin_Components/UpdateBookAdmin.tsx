@@ -14,7 +14,6 @@ const divStyle: CSSProperties = {
   marginTop: "55px",
 };
 
-
 export default function UpdateBookAdmin() {
   window.scrollTo(0, 0);
   const location = useLocation();
