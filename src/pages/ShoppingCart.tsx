@@ -7,7 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Link } from "react-router-dom";
-import ShoppingCartRow from "../components/rows/ShoppingCartRow";
+import ShoppingCartRow from "../components/ShoppingCartRow";
 import { useCart } from "../contexts/CartContext";
 
 export default function ShoppingCart() {
