@@ -8,7 +8,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Link, Outlet } from "react-router-dom";
-import AdminRow from "../../components/AdminRow";
+import AdminRow from "../../components/rows/AdminRow";
 import { useProduct } from "../../contexts/ProductContext";
 
 const linkStyle = {

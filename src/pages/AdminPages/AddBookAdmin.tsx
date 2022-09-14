@@ -1,4 +1,4 @@
-import ProductForm from "../../components/ProductForm";
+import ProductForm from "../../components/productForm/ProductForm";
 
 export default function AddBookAdmin() {
   return (

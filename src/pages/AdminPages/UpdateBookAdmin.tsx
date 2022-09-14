@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { Book } from "../../components/Models";
-import ProductFormUpdate from "../../components/ProductFormUpdate";
+import ProductFormUpdate from "../../components/productForm/ProductFormUpdate";
 import { useProduct } from "../../contexts/ProductContext";
 
 interface CustomizedState {

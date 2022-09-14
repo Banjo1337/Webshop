@@ -3,8 +3,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { Box, Button, TableCell, TableRow } from "@mui/material";
 import React from "react";
-import { useCart } from "../contexts/CartContext";
-import { ProductInCart } from "./Models";
+import { useCart } from "../../contexts/CartContext";
+import { ProductInCart } from "../Models";
 
 interface Props {
   product: ProductInCart;

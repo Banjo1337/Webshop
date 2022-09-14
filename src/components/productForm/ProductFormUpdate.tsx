@@ -1,12 +1,11 @@
+import { Button } from "@mui/material";
 import { useFormik } from "formik";
 import { CSSProperties, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Book, ProductCreate } from "./Models";
 import * as Yup from "yup";
-import { nanoid } from "nanoid";
-import { useProduct } from "../contexts/ProductContext";
-import { Button } from "@mui/material";
-import Toast from "./Toast";
+import { useProduct } from "../../contexts/ProductContext";
+import { Book, ProductCreate } from "../Models";
+import Toast from "../Toast";
 
 type ProductRecord = Record<keyof ProductCreate, Yup.AnySchema>;
 
@@ -20,13 +19,12 @@ const ProductSchema = Yup.object().shape<ProductRecord>({
 });
 
 interface Props {
-  book?: Book;
+  book: Book;
   formName: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function ProductForm(props: Props) {
-  const { addProduct } = useProduct();
+  const { editProduct } = useProduct();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -49,18 +47,18 @@ function ProductForm(props: Props) {
 
   const formik = useFormik<ProductCreate>({
     initialValues: {
-      price: 0,
-      title: "",
-      description: "",
-      author: "",
-      image: "",
-      category: "",
+      price: props.book.price,
+      title: props.book.title,
+      description: props.book.description,
+      author: props.book.author,
+      image: props.book.image,
+      category: props.book.category,
     },
     validateOnChange: true,
     validationSchema: ProductSchema,
     onSubmit: (value) => {
-      const Id = nanoid();
-      const newBook: Book = {
+      const Id = props.book.id;
+      const updatedBook: Book = {
         id: Id,
         author: value.author,
         title: value.title,
@@ -69,7 +67,7 @@ function ProductForm(props: Props) {
         image: value.image,
         category: value.category,
       };
-      addProduct(newBook);
+      editProduct(updatedBook);
       handleClick();
       navigate("/admincms");
     },
@@ -105,10 +103,10 @@ function ProductForm(props: Props) {
           <textarea
             placeholder='Description'
             name={"description"}
-            value={formik.values.description}
-            onChange={formik.handleChange}
             rows={12}
             cols={20}
+            value={formik.values.description}
+            onChange={formik.handleChange}
           ></textarea>
           {formik.touched.description && formik.errors.description ? (
             <div style={errorMessageStyle}>{formik.errors.description}</div>
@@ -152,10 +150,10 @@ function ProductForm(props: Props) {
         </div>
       </div>
       <Button type='submit' variant='contained' color='success' size='large'>
-        Lägg till boken
+        Uppdatera boken
       </Button>
       <Toast
-        message={`${""} Din bok har sparats 🐸`}
+        message={`${""} Din bok har updaterats 🐸`}
         severity='success'
         open={open}
         setOpen={setOpen}

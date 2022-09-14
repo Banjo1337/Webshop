@@ -3,7 +3,7 @@ import { Component } from "react";
 
 import ReplayIcon from "@mui/icons-material/Replay";
 import lostMoth from "../assets/lost_moth.png";
-import BackButton from "./BackButton";
+import BackButton from "./buttons/BackButton";
 
 interface Props {
   children: JSX.Element | JSX.Element[];
