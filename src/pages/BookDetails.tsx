@@ -23,7 +23,7 @@ function BookDetails() {
     minHeight: "500px",
     display: "flex",
   };
-  
+
   return (
     <main>
       <Box
