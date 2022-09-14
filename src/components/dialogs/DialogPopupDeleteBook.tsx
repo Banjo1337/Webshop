@@ -7,10 +7,10 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import { Book } from "../components/Models";
+import { Book } from "../Models";
 import { Link } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { useProduct } from "../contexts/ProductContext";
+import { useProduct } from "../../contexts/ProductContext";
 
 interface Props {
   id: string;

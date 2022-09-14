@@ -1,30 +1,28 @@
 import { Box, Typography } from "@mui/material";
 import { CSSProperties } from "react";
 import { Link, useParams } from "react-router-dom";
-import ShopButton from "../components/ShopButton";
+import ShopButton from "../components/buttons/ShopButton";
 import { useProduct } from "../contexts/ProductContext";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import PageNotFound from "./PageNotFound";
 import useWindowWidth from "../hooks/useWindowWidth";
-import BackButton from "../components/BackButton";
+import BackButton from "../components/buttons/BackButton";
 
 function BookDetails() {
   const { id } = useParams();
   const { products, getProduct } = useProduct();
   const windowWidth = useWindowWidth();
 
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const product = getProduct(id!);
+
+  if (Object.keys(product).length === 0) {
+    return <PageNotFound />;
+  }
 
   const boxStyle: CSSProperties = {
     flex: "1",
     minHeight: "500px",
     display: "flex",
   };
-
-  if (Object.keys(product).length === 0) {
-    return <PageNotFound />;
-  }
 
   return (
     <main>

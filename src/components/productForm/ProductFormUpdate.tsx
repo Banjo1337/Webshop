@@ -3,9 +3,9 @@ import { useFormik } from "formik";
 import { CSSProperties, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
-import { useProduct } from "../contexts/ProductContext";
-import { Book, ProductCreate } from "./Models";
-import Toast from "./Toast";
+import { useProduct } from "../../contexts/ProductContext";
+import { Book, ProductCreate } from "../Models";
+import Toast from "../Toast";
 
 type ProductRecord = Record<keyof ProductCreate, Yup.AnySchema>;
 

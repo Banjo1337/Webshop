@@ -11,18 +11,17 @@ import Paper from "@mui/material/Paper";
 
 function Checkout() {
   const { cart } = useCart();
+
   const totalPrice = cart.reduce(
     (totalPrice, product) => (totalPrice = totalPrice + product.price * product.number),
     0,
   );
-  // const totalNumberOfItem = cart.reduce(
-  //   (totalNumberOfItem, product) => (totalNumberOfItem = totalNumberOfItem + product.number),
-  //   0,
-  // );
+
   const formatter = new Intl.NumberFormat("sv-SE", {
     style: "currency",
     currency: "SEK",
   });
+
   return (
     <main
       style={{

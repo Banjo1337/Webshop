@@ -5,7 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useState } from "react";
 import BookCard from "../components/BookCard";
-import ShopButton from "../components/ShopButton";
+import ShopButton from "../components/buttons/ShopButton";
 import { useProduct } from "../contexts/ProductContext";
 
 function Books() {

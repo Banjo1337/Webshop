@@ -1,12 +1,12 @@
 import { useFormik } from "formik";
 import { CSSProperties, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Book, ProductCreate } from "./Models";
+import { Book, ProductCreate } from "../Models";
 import * as Yup from "yup";
 import { nanoid } from "nanoid";
-import { useProduct } from "../contexts/ProductContext";
+import { useProduct } from "../../contexts/ProductContext";
 import { Button } from "@mui/material";
-import Toast from "./Toast";
+import Toast from "../Toast";
 
 type ProductRecord = Record<keyof ProductCreate, Yup.AnySchema>;
 
@@ -19,13 +19,7 @@ const ProductSchema = Yup.object().shape<ProductRecord>({
   category: Yup.string().required("*Obligatoriskt"),
 });
 
-interface Props {
-  book?: Book;
-  formName: string;
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function ProductForm(props: Props) {
+function ProductForm() {
   const { addProduct } = useProduct();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);

@@ -1,14 +1,14 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import Header from "./components/Header";
-import AdminCMS from "./pages/AdminPages/AdminCMS";
+import AdminCMS from "./pages/AdminCMS";
 import BookDetails from "./pages/BookDetails";
 import Books from "./pages/Books";
 import Checkout from "./pages/Checkout";
 import PageNotFound from "./pages/PageNotFound";
 import ShoppingCart from "./pages/ShoppingCart";
 import OrderConfirmation from "./pages/OrderConfirmation";
-import AddBookAdmin from "./pages/AdminPages/AddBookAdmin";
-import UpdateBookAdmin from "./pages/AdminPages/UpdateBookAdmin";
+import AddBookAdmin from "./components/Admin_Components/AddBookAdmin";
+import UpdateBookAdmin from "./components/Admin_Components/UpdateBookAdmin";
 import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {

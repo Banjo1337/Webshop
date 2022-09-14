@@ -14,14 +14,6 @@ export interface ProductInCart extends Book {
   number: number;
 }
 
-//Kategorier:
-//Roman
-//Deckare
-//Kokbok
-//Barnbok
-//Träning
-//Fakta
-
 export type UserCreate = Omit<User, "id">;
 
 export interface User {

@@ -18,7 +18,6 @@ interface Props {
 
 export default function ProductProvider({ children }: Props) {
   const [products, setProducts] = useState<Book[]>(
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     JSON.parse(localStorage.getItem("products")!) || mockedProducts,
   );
 

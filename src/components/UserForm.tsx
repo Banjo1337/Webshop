@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import { CSSProperties, useEffect, useState } from "react";
 import * as Yup from "yup";
 import { User, UserCreate } from "./Models";
-import DialogPopup from "./DialogPopup";
+import DialogPopup from "./dialogs/DialogPopup";
 import Toast from "./Toast";
 
 type UserRecord = Record<keyof UserCreate, Yup.AnySchema>;
@@ -183,7 +183,6 @@ function UserForm(props: Props) {
   );
 }
 
-//TODO: Move to separate file??
 const formStyle: CSSProperties = {
   marginTop: "1rem",
   alignSelf: "center",
