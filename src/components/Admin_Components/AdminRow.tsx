@@ -13,11 +13,7 @@ import {
 } from "@mui/material";
 import React, { CSSProperties } from "react";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD:src/components/rows/AdminRow.tsx
 import DialogPopupDeleteBook from "../dialogs/DialogPopupDeleteBook";
-=======
-import DialogPopupDeleteBook from "../DialogPopupDeleteBook";
->>>>>>> 38c8d2997f08c1695bea956431aea332c4557428:src/components/Admin_Components/AdminRow.tsx
 import { Book } from "../Models";
 
 interface Props {

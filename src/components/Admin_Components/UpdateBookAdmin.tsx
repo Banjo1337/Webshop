@@ -1,12 +1,7 @@
+import { CSSProperties } from "react";
 import { useLocation } from "react-router-dom";
-<<<<<<< HEAD:src/pages/AdminPages/UpdateBookAdmin.tsx
 import { Book } from "../../components/Models";
 import ProductFormUpdate from "../../components/productForm/ProductFormUpdate";
-=======
-import { CSSProperties} from "react";
-import { Book } from "../Models";
-import ProductFormUpdate from "../ProductFormUpdate";
->>>>>>> 38c8d2997f08c1695bea956431aea332c4557428:src/components/Admin_Components/UpdateBookAdmin.tsx
 import { useProduct } from "../../contexts/ProductContext";
 
 interface CustomizedState {
