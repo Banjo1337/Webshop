@@ -59,6 +59,7 @@ function UserForm(props: Props) {
       <div style={userInfoStyle}>
         <div style={flexColumn}>
           <input
+            style={inputStyle}
             placeholder='Förnamn'
             type='text'
             name='firstName'
@@ -72,6 +73,7 @@ function UserForm(props: Props) {
 
         <div style={flexColumn}>
           <input
+            style={inputStyle}
             placeholder='Efternamn'
             type='text'
             name='lastName'
@@ -87,6 +89,7 @@ function UserForm(props: Props) {
       <div style={userInfoStyle}>
         <div style={flexColumn}>
           <input
+            style={inputStyle}
             placeholder='Email'
             type='text'
             name='email'
@@ -100,6 +103,7 @@ function UserForm(props: Props) {
 
         <div style={flexColumn}>
           <input
+            style={inputStyle}
             placeholder='Telefon'
             type='text'
             name='phone'
@@ -115,6 +119,7 @@ function UserForm(props: Props) {
       <div style={userInfoStyle}>
         <div style={flexColumn}>
           <input
+            style={inputStyle}
             placeholder='Adress'
             type='text'
             name='address'
@@ -128,6 +133,7 @@ function UserForm(props: Props) {
 
         <div style={flexColumn}>
           <input
+            style={inputStyle}
             placeholder='Postnummer'
             type='text'
             name='postcode'
@@ -143,6 +149,7 @@ function UserForm(props: Props) {
       <div style={userInfoStyle}>
         <div style={flexColumn}>
           <input
+            style={{ width: "92%" }}
             placeholder='Stad'
             type='text'
             name='city'
@@ -181,6 +188,10 @@ const formStyle: CSSProperties = {
   alignSelf: "center",
   textAlign: "center",
   boxShadow: "1px 2px 9px #F4AAB9",
+};
+
+const inputStyle: CSSProperties = {
+  width: "95%",
 };
 
 const userInfoStyle: CSSProperties = {

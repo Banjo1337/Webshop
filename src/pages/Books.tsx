@@ -12,6 +12,7 @@ function Books() {
   const { products: books } = useProduct();
   const [searchFilters, setSearchFilters] = useState({ category: "", title: "" });
   const categories = [...new Set(books.map((book) => book.category))];
+  window.localStorage.removeItem("user");
 
   const handleChange = (event: SelectChangeEvent) => {
     setSearchFilters((prevState) => ({ ...prevState, category: event.target.value }));
