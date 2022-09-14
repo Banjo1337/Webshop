@@ -1,4 +1,4 @@
-import ProductForm from "../ProductForm";
+import ProductForm from "../productForm/ProductForm";
 import { CSSProperties } from "react";
 
 const divStyle: CSSProperties = {

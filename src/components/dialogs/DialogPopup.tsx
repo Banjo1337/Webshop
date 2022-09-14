@@ -7,9 +7,9 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import { User } from "./Models";
+import { User } from "../Models";
 import { Link } from "react-router-dom";
-import { useCart } from "../contexts/CartContext";
+import { useCart } from "../../contexts/CartContext";
 
 export default function ResponsiveDialog() {
   const user: User = JSON.parse(window.localStorage.getItem("user") || "{}");

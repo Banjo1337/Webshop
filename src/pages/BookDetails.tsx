@@ -1,11 +1,11 @@
 import { Box, Typography } from "@mui/material";
 import { CSSProperties } from "react";
 import { Link, useParams } from "react-router-dom";
-import ShopButton from "../components/ShopButton";
+import ShopButton from "../components/buttons/ShopButton";
 import { useProduct } from "../contexts/ProductContext";
 import PageNotFound from "./PageNotFound";
 import useWindowWidth from "../hooks/useWindowWidth";
-import BackButton from "../components/BackButton";
+import BackButton from "../components/buttons/BackButton";
 
 function BookDetails() {
   const { id } = useParams();
