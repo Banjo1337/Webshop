@@ -31,7 +31,7 @@ function OrderConfirmation() {
         >
           <ArrowBackIcon sx={{ fontSize: "1.5rem" }} />
           <Typography sx={{ fontWeight: "500", fontSize: "1.5rem" }}>
-            Tillbaka till våra böker...
+            Tillbaka till våra böcker...
           </Typography>
         </Link>
       </Box>
