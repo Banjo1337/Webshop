@@ -38,8 +38,14 @@ export default function ResponsiveDialog() {
 
   return (
     <div>
-      <Button variant='contained' color='success' size='large' onClick={handleClickOpen}>
-        Bekräfta
+      <Button
+        style={{ width: "7.5rem" }}
+        variant='contained'
+        color='success'
+        size='large'
+        onClick={handleClickOpen}
+      >
+        Beställ
       </Button>
       <Dialog
         fullScreen={fullScreen}
