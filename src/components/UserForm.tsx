@@ -18,7 +18,7 @@ const UserSchema = Yup.object().shape<UserRecord>({
     .min(5, "*Ej giltigt postnummer")
     .max(6, "*Ej giltigt postnummer")
     .required("*Obligatoriskt"),
-  city: Yup.string().min(2).required("*Obligatoriskt"),
+  city: Yup.string().min(2, "*Minst 2 bokstäver").required("*Obligatoriskt"),
 });
 
 interface Props {
