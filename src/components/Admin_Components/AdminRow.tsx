@@ -13,8 +13,8 @@ import {
 } from "@mui/material";
 import React, { CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import DialogPopupDeleteBook from "./DialogPopupDeleteBook";
-import { Book } from "./Models";
+import DialogPopupDeleteBook from "../DialogPopupDeleteBook";
+import { Book } from "../Models";
 
 interface Props {
   product: Book;

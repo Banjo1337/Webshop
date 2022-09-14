@@ -8,8 +8,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Link, Outlet } from "react-router-dom";
-import AdminRow from "../../components/AdminRow";
-import { useProduct } from "../../contexts/ProductContext";
+import AdminRow from "../components/Admin_Components/AdminRow";
+import { useProduct } from "../contexts/ProductContext";
 
 const linkStyle = {
   display: "flex",
