@@ -10,7 +10,7 @@ const divStyle: CSSProperties = {
 export default function AddBookAdmin() {
   return (
     <div style={divStyle}>
-      <ProductForm formName='newbook' />
+      <ProductForm />
     </div>
   );
 }
