@@ -45,35 +45,35 @@ export default function ResponsiveDialog() {
       >
         <DialogTitle id='responsive-dialog-title'>{"Stämmer dina uppgifter?"}</DialogTitle>
         <DialogContent>
-          <Typography variant="h6" component="p">
-            Namn: 
+          <Typography variant='h6' component='p'>
+            Namn:
           </Typography>
           <br />
-          <Typography variant="subtitle1" component="p">
+          <Typography variant='subtitle1' component='p'>
             {user.firstName} {user.lastName}
           </Typography>
           <br />
 
-          <Typography variant="h6" component="p">
-            Adress: 
+          <Typography variant='h6' component='p'>
+            Adress:
           </Typography>
           <br />
-          <Typography variant="subtitle1" component="p">
+          <Typography variant='subtitle1' component='p'>
             {user.address}
           </Typography>
-          <Typography variant="subtitle1" component="p">
-            {user.postcode} {user.city} 
+          <Typography variant='subtitle1' component='p'>
+            {user.postcode} {user.city}
           </Typography>
           <br />
 
-          <Typography variant="h6" component="p">
+          <Typography variant='h6' component='p'>
             Kontaktuppgifter:
           </Typography>
           <br />
-          <Typography variant="subtitle1" component="p">
+          <Typography variant='subtitle1' component='p'>
             {user.email}
           </Typography>
-          <Typography variant="subtitle1" component="p">
+          <Typography variant='subtitle1' component='p'>
             {user.phone}
           </Typography>
         </DialogContent>
