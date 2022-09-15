@@ -4,6 +4,7 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { Box, TableCell, TableRow } from "@mui/material";
 import React from "react";
 import { useCart } from "../contexts/CartContext";
+import useCurrencyFormatter from "../hooks/useCurrencyFormatter";
 import useFallBackImage from "../hooks/useFallBackImage";
 import { ProductInCart } from "./Models";
 
@@ -13,10 +14,6 @@ interface Props {
 
 function ShoppingCartRow({ product }: Props) {
   const { addToCart, removeFromCart, removeAllQuantitiesFromCart } = useCart();
-  const formatter = new Intl.NumberFormat("sv-SE", {
-    style: "currency",
-    currency: "SEK",
-  });
 
   return (
     <React.Fragment>
@@ -52,7 +49,7 @@ function ShoppingCartRow({ product }: Props) {
       </TableRow>
       <TableRow>
         <TableCell align='right' sx={{ paddingRight: "0" }}>
-          {formatter.format(product.price)}/st
+          {useCurrencyFormatter(product.price)}/st
         </TableCell>
         <TableCell align='center' sx={{ paddingRight: "0" }}>
           <Box>Antal: {product.number} st</Box>

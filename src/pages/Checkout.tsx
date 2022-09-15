@@ -10,6 +10,7 @@ import { Box } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import EmptyShoppingCart from "../components/EmptyShoppingCart";
 import useFallBackImage from "../hooks/useFallBackImage";
+import useCurrencyFormatter from "../hooks/useCurrencyFormatter";
 
 function Checkout() {
   const { cart } = useCart();
@@ -18,11 +19,6 @@ function Checkout() {
     (totalPrice, product) => (totalPrice = totalPrice + product.price * product.number),
     0,
   );
-
-  const formatter = new Intl.NumberFormat("sv-SE", {
-    style: "currency",
-    currency: "SEK",
-  });
 
   if (cart.length === 0) {
     return <EmptyShoppingCart />;
@@ -65,7 +61,7 @@ function Checkout() {
                   <br />
                   Antal: {product.number}
                 </TableCell>
-                <TableCell align='left'>{formatter.format(product.price)}</TableCell>
+                <TableCell align='left'>{useCurrencyFormatter(product.price)}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -74,7 +70,7 @@ function Checkout() {
           <TableHead>
             <TableRow>
               <TableCell></TableCell>
-              <TableCell align='right'>Totalt: {formatter.format(totalPrice)}</TableCell>
+              <TableCell align='right'>Totalt: {useCurrencyFormatter(totalPrice)}</TableCell>
               <TableCell></TableCell>
             </TableRow>
           </TableHead>
