@@ -3,8 +3,10 @@ Bokmal.se
 Våran e-handelssida som säljer böcker i de vanligaste kategorierna, än så länge finns inget specifikt format, kanske kommer i framtiden.
 
 Man kör projektet genom:
-   * dev-läget: npm run dev
-   * prod: npm run build
+1. installera: npm install
+2.
+   * starta i developer-miljön: npm run dev
+   * bygga för att köra i produktion: npm run build
 
 // Länkar till docs
 * Material-UI: https://mui.com/material-ui/getting-started/overview/
