@@ -1,6 +1,7 @@
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import useFallBackImage from "../hooks/useFallBackImage";
 import { Book } from "./Models";
 
 interface Props {
@@ -20,7 +21,7 @@ const BookCard = ({ book, children }: Props) => {
           style={{ objectFit: "contain" }}
           component='img'
           height='250px'
-          image={book.image}
+          image={useFallBackImage(book.image)}
           alt={book.title + " cover"}
         />
       </Link>

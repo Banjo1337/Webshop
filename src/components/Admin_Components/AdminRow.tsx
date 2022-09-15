@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import React, { CSSProperties } from "react";
 import { Link } from "react-router-dom";
+import useFallBackImage from "../../hooks/useFallBackImage";
 import DialogPopupDeleteBook from "../dialogs/DialogPopupDeleteBook";
 import { Book } from "../Models";
 
@@ -42,7 +43,7 @@ function AdminRow({ product, linkStyle }: Props) {
             sx={{
               width: "40px",
             }}
-            src={product.image}
+            src={useFallBackImage(product.image)}
           />
         </TableCell>
         <TableCell>{product.title}</TableCell>

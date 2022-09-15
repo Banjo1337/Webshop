@@ -4,6 +4,7 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { Box, TableCell, TableRow } from "@mui/material";
 import React from "react";
 import { useCart } from "../contexts/CartContext";
+import useFallBackImage from "../hooks/useFallBackImage";
 import { ProductInCart } from "./Models";
 
 interface Props {
@@ -26,7 +27,7 @@ function ShoppingCartRow({ product }: Props) {
             sx={{
               width: "40px",
             }}
-            src={product.image}
+            src={useFallBackImage(product.image)}
           />
         </TableCell>
         <TableCell align='left' sx={{ display: "flex", flexDirection: "column", borderBottom: 0 }}>
