@@ -62,8 +62,8 @@ function AdminRow({ product, linkStyle }: Props) {
                 <TableHead>
                   <TableRow>
                     <TableCell>Id</TableCell>
-                    <TableCell>Price</TableCell>
-                    <TableCell>Author</TableCell>
+                    <TableCell>Pris</TableCell>
+                    <TableCell>Författare</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -86,7 +86,7 @@ function AdminRow({ product, linkStyle }: Props) {
             <Table size='small'>
               <TableHead>
                 <TableRow>
-                  <TableCell>Description</TableCell>
+                  <TableCell>Beskrivning</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>

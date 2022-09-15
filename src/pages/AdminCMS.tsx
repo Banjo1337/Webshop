@@ -28,8 +28,8 @@ export default function AdminCMS() {
           <TableHead>
             <TableRow>
               <TableCell />
-              <TableCell>Cover</TableCell>
-              <TableCell>Title</TableCell>
+              <TableCell>Omslag</TableCell>
+              <TableCell>Titel</TableCell>
               <TableCell align='right'>
                 <Link to='addbookadmin' style={linkStyle}>
                   <AddIcon sx={{ color: "#F5425D", cursor: "pointer" }} />
