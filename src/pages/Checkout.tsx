@@ -51,7 +51,6 @@ function Checkout() {
                     sx={{
                       width: "40px",
                     }}
-                    // eslint-disable-next-line react-hooks/rules-of-hooks
                     src={useFallBackImage(product.image)}
                   />
                 </TableCell>
