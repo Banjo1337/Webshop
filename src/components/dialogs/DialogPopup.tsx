@@ -14,6 +14,7 @@ import { Typography } from "@mui/material";
 export default function ResponsiveDialog() {
   const user: User = JSON.parse(window.localStorage.getItem("user") || "{}");
   const [open, setOpen] = React.useState(false);
+  const [open1, setOpen1] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const { clearCart } = useCart();
@@ -24,11 +25,12 @@ export default function ResponsiveDialog() {
 
   const handleClickOpen = () => {
     if (isValidUser(user)) setOpen(true);
-    else setOpen(false);
+    else setOpen1(true);
   };
 
   const handleClose = () => {
     setOpen(false);
+    setOpen1(false);
   };
 
   const handleClear = () => {
@@ -95,6 +97,19 @@ export default function ResponsiveDialog() {
           </Link>
           <Button onClick={handleClose} autoFocus>
             Nej
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <Dialog
+        fullScreen={fullScreen}
+        open={open1}
+        onClose={handleClose}
+        aria-labelledby='responsive-dialog-title'
+      >
+        <DialogTitle id='responsive-dialog-title'>{"Vänligen fyll i och lägg till dina uppgifter först"}</DialogTitle>
+        <DialogActions>
+          <Button onClick={handleClose} autoFocus>
+            Tillbaka
           </Button>
         </DialogActions>
       </Dialog>
