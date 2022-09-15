@@ -1,20 +1,30 @@
-Bokmal.se
+# 🦋Bokmal.se
 
 Våran e-handelssida som säljer böcker i de vanligaste kategorierna, än så länge finns inget specifikt format, kanske kommer i framtiden.
 
-Man kör projektet genom:
-1. installera: npm install
-2.
-   * starta i developer-miljön: npm run dev
-   * bygga för att köra i produktion: npm run build
+## Man kör projektet genom:
+1. installera dependencies med:
+```
+ npm install
+```
+2. Starta i developer-miljön:
+```
+ npm run dev
+```
+3. Bygga för att köra i produktion:
+```
+npm run build
+```
 
-// Länkar till docs
+### Länkar till docs
 * Material-UI: https://mui.com/material-ui/getting-started/overview/
 * Formik: https://formik.org/docs/overview
 * Yup: https://github.com/jquense/yup
 * NanoID: https://github.com/ai/nanoid
 * Prettier: https://prettier.io/docs/en/index.html
 * ESLint: https://eslint.org/docs/latest/
+
+## Krav
 
 Krav för godkänt:
 
