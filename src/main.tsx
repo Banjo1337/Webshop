@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import Footer from "./components/Footer";
 import CartProvider from "./contexts/CartContext";
 import ProductProvider from "./contexts/ProductContext";
 import "./index.css";
@@ -13,7 +12,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <CartProvider>
         <BrowserRouter>
           <App />
-          <Footer />
         </BrowserRouter>
       </CartProvider>
     </ProductProvider>

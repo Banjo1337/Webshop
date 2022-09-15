@@ -8,6 +8,7 @@ import PageNotFound from "./pages/PageNotFound";
 import ShoppingCart from "./pages/ShoppingCart";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import ErrorBoundary from "./components/ErrorBoundary";
+import Footer from "./components/Footer";
 const AdminCMS = lazy(() => import("./pages/AdminCMS"));
 const AddBookAdmin = lazy(() => import("./components/Admin_Components/AddBookAdmin"));
 const UpdateBookAdmin = lazy(() => import("./components/Admin_Components/UpdateBookAdmin"));
@@ -16,7 +17,15 @@ function App() {
   const location = useLocation();
   return (
     <Routes>
-      <Route path='/' element={<Header />}>
+      <Route
+        path='/'
+        element={
+          <>
+            <Header />
+            <Footer />
+          </>
+        }
+      >
         <Route index element={<Books />} />
         <Route path='book/:id' element={<BookDetails />} />
         <Route path='shoppingcart' element={<ShoppingCart />} />
