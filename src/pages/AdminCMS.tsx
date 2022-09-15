@@ -20,6 +20,18 @@ const linkStyle = {
 export default function AdminCMS() {
   const { products } = useProduct();
 
+  const sortedProducts = [...products];
+
+  sortedProducts.sort((a, b) => {
+    if (a.title < b.title) {
+      return -1;
+    }
+    if (a.title > b.title) {
+      return 1;
+    }
+    return 0;
+  });
+
   return (
     <main style={{ display: "flex", flexDirection: "column" }}>
       <Outlet />
@@ -41,7 +53,7 @@ export default function AdminCMS() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {products.map((product) => (
+            {sortedProducts.map((product) => (
               <AdminRow key={product.id} product={product} linkStyle={linkStyle} />
             ))}
           </TableBody>
