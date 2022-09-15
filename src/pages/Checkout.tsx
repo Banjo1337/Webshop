@@ -9,6 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import { Box } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import EmptyShoppingCart from "../components/EmptyShoppingCart";
+import useFallBackImage from "../hooks/useFallBackImage";
 
 function Checkout() {
   const { cart } = useCart();
@@ -54,7 +55,8 @@ function Checkout() {
                     sx={{
                       width: "40px",
                     }}
-                    src={product.image}
+                    // eslint-disable-next-line react-hooks/rules-of-hooks
+                    src={useFallBackImage(product.image)}
                   />
                 </TableCell>
                 <TableCell component='th' scope='row'>
