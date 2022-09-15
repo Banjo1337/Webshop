@@ -8,22 +8,22 @@ import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import bokmal from "../assets/bokmal.png";
 import Badge from "@mui/material/Badge";
 import { useCart } from "../contexts/CartContext";
+import useCurrencyFormatter from "../hooks/useCurrencyFormatter";
 
 export default function ResponsiveAppBar() {
   const { cart } = useCart();
+
   const totalPrice = cart.reduce(
     (totalPrice, product) => (totalPrice = totalPrice + product.price * product.number),
     0,
   );
-  const formatter = new Intl.NumberFormat("sv-SE", {
-    style: "currency",
-    currency: "SEK",
-  });
+
   const linkStyle = {
     display: "flex",
     textDecoration: "none",
     color: "white",
   };
+
   return (
     <>
       <AppBar
@@ -85,8 +85,12 @@ export default function ResponsiveAppBar() {
                   marginLeft: "1.5rem",
                 }}
               >
-                <div>{totalPrice > 0 ? "Totalt: " : null}</div>
-                <div>{totalPrice > 0 ? formatter.format(totalPrice) : null}</div>
+                {totalPrice > 0 && (
+                  <>
+                    <Box>Totalt: </Box>
+                    <Box>{useCurrencyFormatter(totalPrice)}</Box>
+                  </>
+                )}
               </Box>
             </Box>
             <Box
