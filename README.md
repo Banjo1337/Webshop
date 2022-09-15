@@ -1,6 +1,7 @@
 # 🦋Bokmal.se
 
 Våran e-handelssida som säljer böcker i de vanligaste kategorierna, än så länge finns inget specifikt format, kanske kommer i framtiden.
+https://roaring-mandazi-fb1961.netlify.app/
 
 ## Man kör projektet genom:
 1. installera dependencies med:
