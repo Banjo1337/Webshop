@@ -11,7 +11,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import React, { CSSProperties } from "react";
+import { CSSProperties, Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import useFallBackImage from "../../hooks/useFallBackImage";
 import getFormattedCurrency from "../../utils/getFormattedCurrency";
@@ -24,10 +24,10 @@ interface Props {
 }
 
 function AdminRow({ product, linkStyle }: Props) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
-    <React.Fragment>
+    <Fragment>
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
         <TableCell>
           <IconButton aria-label='expand row' size='small' onClick={() => setOpen(!open)}>
@@ -59,8 +59,8 @@ function AdminRow({ product, linkStyle }: Props) {
                 <TableHead>
                   <TableRow>
                     <TableCell>Id</TableCell>
-                    <TableCell>Price</TableCell>
-                    <TableCell>Author</TableCell>
+                    <TableCell>Pris</TableCell>
+                    <TableCell>Författare</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -83,7 +83,7 @@ function AdminRow({ product, linkStyle }: Props) {
             <Table size='small'>
               <TableHead>
                 <TableRow>
-                  <TableCell>Description</TableCell>
+                  <TableCell>Beskrivning</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -95,7 +95,7 @@ function AdminRow({ product, linkStyle }: Props) {
           </Collapse>
         </TableCell>
       </TableRow>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

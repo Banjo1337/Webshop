@@ -1,5 +1,6 @@
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { Button } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -10,6 +11,7 @@ import TableRow from "@mui/material/TableRow";
 import { Link, Outlet } from "react-router-dom";
 import AdminRow from "../components/Admin_Components/AdminRow";
 import { useProduct } from "../contexts/ProductContext";
+import { useSortableData } from "../hooks/useSortableData";
 
 const linkStyle = {
   display: "flex",
@@ -20,6 +22,11 @@ const linkStyle = {
 export default function AdminCMS() {
   const { products } = useProduct();
 
+  const { items, requestSort } = useSortableData(products, {
+    key: "title",
+    direction: "descending",
+  });
+
   return (
     <main style={{ display: "flex", flexDirection: "column" }}>
       <Outlet />
@@ -28,8 +35,15 @@ export default function AdminCMS() {
           <TableHead>
             <TableRow>
               <TableCell />
-              <TableCell>Cover</TableCell>
-              <TableCell>Title</TableCell>
+              <TableCell>Omslag</TableCell>
+              <TableCell>
+                <Button
+                  onClick={() => requestSort("title")}
+                  sx={{ textTransform: "capitalize", color: "black" }}
+                >
+                  Titel
+                </Button>
+              </TableCell>
               <TableCell align='right'>
                 <Link to='addbookadmin' style={linkStyle}>
                   <AddIcon sx={{ color: "#F5425D", cursor: "pointer" }} />
@@ -41,7 +55,7 @@ export default function AdminCMS() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {products.map((product) => (
+            {items.map((product) => (
               <AdminRow key={product.id} product={product} linkStyle={linkStyle} />
             ))}
           </TableBody>
