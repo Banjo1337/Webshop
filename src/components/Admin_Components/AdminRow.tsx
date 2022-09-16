@@ -11,7 +11,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import React, { CSSProperties } from "react";
+import { CSSProperties, Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import useFallBackImage from "../../hooks/useFallBackImage";
 import DialogPopupDeleteBook from "../dialogs/DialogPopupDeleteBook";
@@ -23,14 +23,14 @@ interface Props {
 }
 
 function AdminRow({ product, linkStyle }: Props) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const formatter = new Intl.NumberFormat("sv-SE", {
     style: "currency",
     currency: "SEK",
   });
 
   return (
-    <React.Fragment>
+    <Fragment>
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
         <TableCell>
           <IconButton aria-label='expand row' size='small' onClick={() => setOpen(!open)}>
@@ -98,7 +98,7 @@ function AdminRow({ product, linkStyle }: Props) {
           </Collapse>
         </TableCell>
       </TableRow>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

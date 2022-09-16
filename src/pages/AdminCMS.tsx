@@ -8,10 +8,10 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import AdminRow from "../components/Admin_Components/AdminRow";
 import { useProduct } from "../contexts/ProductContext";
+import { useSortableData } from "../hooks/useSortableData";
 
 const linkStyle = {
   display: "flex",
@@ -22,31 +22,10 @@ const linkStyle = {
 export default function AdminCMS() {
   const { products } = useProduct();
 
-  const [sortDirection, setSortDirection] = useState(true);
-
-  const sortedProducts = [...products];
-
-  if (sortDirection) {
-    sortedProducts.sort((a, b) => {
-      if (a.title < b.title) {
-        return -1;
-      }
-      if (a.title > b.title) {
-        return 1;
-      }
-      return 0;
-    });
-  } else {
-    sortedProducts.sort((a, b) => {
-      if (a.title < b.title) {
-        return 1;
-      }
-      if (a.title > b.title) {
-        return -1;
-      }
-      return 0;
-    });
-  }
+  const { items, requestSort } = useSortableData(products, {
+    key: "title",
+    direction: "descending",
+  });
 
   return (
     <main style={{ display: "flex", flexDirection: "column" }}>
@@ -58,7 +37,12 @@ export default function AdminCMS() {
               <TableCell />
               <TableCell>Omslag</TableCell>
               <TableCell>
-                <Button onClick={() => setSortDirection(!sortDirection)}>Titel</Button>
+                <Button
+                  onClick={() => requestSort("title")}
+                  sx={{ textTransform: "capitalize", color: "black" }}
+                >
+                  Titel
+                </Button>
               </TableCell>
               <TableCell align='right'>
                 <Link to='addbookadmin' style={linkStyle}>
@@ -71,7 +55,7 @@ export default function AdminCMS() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {sortedProducts.map((product) => (
+            {items.map((product) => (
               <AdminRow key={product.id} product={product} linkStyle={linkStyle} />
             ))}
           </TableBody>
