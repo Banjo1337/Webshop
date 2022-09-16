@@ -13,10 +13,12 @@ import getFormattedCurrency from "../utils/getFormattedCurrency";
 export default function ResponsiveAppBar() {
   const { cart } = useCart();
 
-  const totalPrice = getFormattedCurrency(cart.reduce(
-    (totalPrice, product) => (totalPrice = totalPrice + product.price * product.number),
-    0,
-  ));
+  const totalPrice = getFormattedCurrency(
+    cart.reduce(
+      (totalPrice, product) => (totalPrice = totalPrice + product.price * product.number),
+      0,
+    ),
+  );
 
   const linkStyle = {
     display: "flex",

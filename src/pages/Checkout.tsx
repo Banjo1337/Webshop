@@ -11,20 +11,20 @@ import EmptyShoppingCart from "../components/EmptyShoppingCart";
 import getFormattedCurrency from "../utils/getFormattedCurrency";
 import CheckoutRow from "../components/CheckoutRow";
 
-
 function Checkout() {
   const { cart } = useCart();
 
-  const totalPrice = getFormattedCurrency(cart.reduce(
-    (totalPrice, product) => (totalPrice = totalPrice + product.price * product.number),
-    0,
-  ));
-  
+  const totalPrice = getFormattedCurrency(
+    cart.reduce(
+      (totalPrice, product) => (totalPrice = totalPrice + product.price * product.number),
+      0,
+    ),
+  );
 
   if (cart.length === 0) {
     return <EmptyShoppingCart />;
   }
-  
+
   return (
     <main
       style={{
@@ -45,8 +45,8 @@ function Checkout() {
           </TableHead>
           <TableBody>
             {cart.map((product) => (
-                <CheckoutRow key={product.id} product={product} />
-            ))}    
+              <CheckoutRow key={product.id} product={product} />
+            ))}
           </TableBody>
         </Table>
         <Table sx={{ minWidth: 360 }} aria-label='simple table'>
