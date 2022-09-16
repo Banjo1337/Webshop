@@ -13,8 +13,8 @@ import {
 } from "@mui/material";
 import React, { CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import useCurrencyFormatter from "../../hooks/useCurrencyFormatter";
 import useFallBackImage from "../../hooks/useFallBackImage";
+import getFormattedCurrency from "../../utils/getFormattedCurrency";
 import DialogPopupDeleteBook from "../dialogs/DialogPopupDeleteBook";
 import { Book } from "../Models";
 
@@ -68,7 +68,7 @@ function AdminRow({ product, linkStyle }: Props) {
                     <TableCell component='th' scope='row'>
                       {product.id}
                     </TableCell>
-                    <TableCell>{useCurrencyFormatter(product.price)}</TableCell>
+                    <TableCell>{getFormattedCurrency(product.price)}</TableCell>
                     <TableCell>{product.author}</TableCell>
                   </TableRow>
                 </TableBody>

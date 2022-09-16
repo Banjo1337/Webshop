@@ -4,8 +4,8 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { Box, TableCell, TableRow } from "@mui/material";
 import React from "react";
 import { useCart } from "../contexts/CartContext";
-import useCurrencyFormatter from "../hooks/useCurrencyFormatter";
 import useFallBackImage from "../hooks/useFallBackImage";
+import getFormattedCurrency from "../utils/getFormattedCurrency";
 import { ProductInCart } from "./Models";
 
 interface Props {
@@ -49,7 +49,7 @@ function ShoppingCartRow({ product }: Props) {
       </TableRow>
       <TableRow>
         <TableCell align='right' sx={{ paddingRight: "0" }}>
-          {useCurrencyFormatter(product.price)}/st
+          {getFormattedCurrency(product.price)}/st
         </TableCell>
         <TableCell align='center' sx={{ paddingRight: "0" }}>
           <Box>Antal: {product.number} st</Box>

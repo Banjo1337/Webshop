@@ -1,4 +1,4 @@
-export default function useCurrencyFormatter(
+export default function getFormattedCurrency(
   value: number,
   language = "sv-SE",
   style = "currency",
