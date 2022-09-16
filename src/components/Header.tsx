@@ -8,15 +8,15 @@ import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import bokmal from "../assets/bokmal.png";
 import Badge from "@mui/material/Badge";
 import { useCart } from "../contexts/CartContext";
-import useCurrencyFormatter from "../hooks/useCurrencyFormatter";
+import getFormattedCurrency from "../utils/getFormattedCurrency";
 
 export default function ResponsiveAppBar() {
   const { cart } = useCart();
 
-  const totalPrice = cart.reduce(
+  const totalPrice = getFormattedCurrency(cart.reduce(
     (totalPrice, product) => (totalPrice = totalPrice + product.price * product.number),
     0,
-  );
+  ));
 
   const linkStyle = {
     display: "flex",
@@ -85,10 +85,10 @@ export default function ResponsiveAppBar() {
                   marginLeft: "1.5rem",
                 }}
               >
-                {totalPrice > 0 && (
+                {cart.length > 0 && (
                   <>
                     <Box>Totalt: </Box>
-                    <Box>{useCurrencyFormatter(totalPrice)}</Box>
+                    <Box>{totalPrice}</Box>
                   </>
                 )}
               </Box>
