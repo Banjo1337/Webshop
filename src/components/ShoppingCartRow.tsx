@@ -4,7 +4,6 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { Box, TableCell, TableRow } from "@mui/material";
 import React from "react";
 import { useCart } from "../contexts/CartContext";
-
 import useFallBackImage from "../hooks/useFallBackImage";
 import getFormattedCurrency from "../utils/getFormattedCurrency";
 import { ProductInCart } from "./Models";
