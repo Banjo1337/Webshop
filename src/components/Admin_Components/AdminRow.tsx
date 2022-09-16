@@ -14,6 +14,7 @@ import {
 import { CSSProperties, Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import useFallBackImage from "../../hooks/useFallBackImage";
+import getFormattedCurrency from "../../utils/getFormattedCurrency";
 import DialogPopupDeleteBook from "../dialogs/DialogPopupDeleteBook";
 import { Book } from "../Models";
 
@@ -23,11 +24,7 @@ interface Props {
 }
 
 function AdminRow({ product, linkStyle }: Props) {
-  const [open, setOpen] = useState(false);
-  const formatter = new Intl.NumberFormat("sv-SE", {
-    style: "currency",
-    currency: "SEK",
-  });
+  const [open, setOpen] = React.useState(false);
 
   return (
     <Fragment>
@@ -71,7 +68,7 @@ function AdminRow({ product, linkStyle }: Props) {
                     <TableCell component='th' scope='row'>
                       {product.id}
                     </TableCell>
-                    <TableCell>{formatter.format(product.price)}</TableCell>
+                    <TableCell>{getFormattedCurrency(product.price)}</TableCell>
                     <TableCell>{product.author}</TableCell>
                   </TableRow>
                 </TableBody>
