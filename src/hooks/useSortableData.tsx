@@ -20,7 +20,6 @@ export function useSortableData<T>(items: T[], config = { key: "", direction: ""
   }, [items, sortConfig]);
 
   const requestSort = (key: string) => {
-    console.log(key);
     let direction = "ascending";
     if (sortConfig && sortConfig.key === key && sortConfig.direction === "ascending") {
       direction = "descending";
