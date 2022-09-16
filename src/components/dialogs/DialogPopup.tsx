@@ -14,7 +14,7 @@ import { Typography } from "@mui/material";
 export default function ResponsiveDialog() {
   const user: User = JSON.parse(window.localStorage.getItem("user") || "{}");
   const [open, setOpen] = React.useState(false);
-  const [open1, setOpen1] = React.useState(false);
+  const [openError, setOpenError] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const { clearCart } = useCart();
@@ -25,12 +25,12 @@ export default function ResponsiveDialog() {
 
   const handleClickOpen = () => {
     if (isValidUser(user)) setOpen(true);
-    else setOpen1(true);
+    else setOpenError(true);
   };
 
   const handleClose = () => {
     setOpen(false);
-    setOpen1(false);
+    setOpenError(false);
   };
 
   const handleClear = () => {
@@ -102,7 +102,7 @@ export default function ResponsiveDialog() {
       </Dialog>
       <Dialog
         fullScreen={fullScreen}
-        open={open1}
+        open={openError}
         onClose={handleClose}
         aria-labelledby='responsive-dialog-title'
       >
